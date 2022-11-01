@@ -1,0 +1,24 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 99vh;
+	width: 99vw;
+}
+
+.error420 {
+	height: 99.6vh;
+	width: 99.6vw;
+	
+}
+.menu_back {
+	height: 60px;
+	width: 60px;
+	position: fixed;
+	top: 0vh;
+	left: 96.4vw;
+	z-index: 100;
+}

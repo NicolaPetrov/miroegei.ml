@@ -1,0 +1,50 @@
+body {
+  background-image: url(https://www.wallpaperup.com/uploads/wallpapers/2015/01/15/586173/5cb0f1ae034a2ead475f14e4ae529ea7.jpg);
+  background-size: 1400px;
+}
+
+.text {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding-top: 150px;
+  
+  
+}
+h1 {
+  font-family: 'Shrek', 'arial';
+  font-size: 90px;
+  text-shadow: 5px 5px 5px #b9cf35;
+  background-color: rgba(255,255,255,.55);
+  border: 2px solid #b9cf35;
+  border-radius: 40px;
+  padding-top: 40px;
+
+}
+
+.saved {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: rgba(255,255,255,.55);
+  border: 2px solid #b9cf35;
+  border-radius: 40px;
+  
+  
+}
+h2 {
+  font-family: 'Shrek', 'arial';
+  font-size: 30px;
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px 2px #b9cf35;
+  
+  
+  
+}

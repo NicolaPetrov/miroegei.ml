@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PITONCHETO NA MIRO</title>
+    <link rel="stylesheet" type="text/css" href="zmiq.css" />
+  </head>
+  <body>
+      <div class="suobshtenie">
+    NAHRANETE  
+    <br>
+    PITONCHETO
+    <br>
+    NA MIRO ZA DA
+    <br>
+    STANE PITON
+    </div>
+      <img class="miro" src="bird.png" alt="bird-img">
+    <div id="igralnoPole"></div>
+      <p>
+ <a href="https://www.miroegei.ml/main/">
+  <img class="menu_back" src="menu_back.png" alt="menu_back-img">
+ </a>
+</p>
+    <div id="scoreContainer">
+      <div class="scoreBoard">IZQDENI PIJKI: <span id="pointsEarned">0</span></div>
+      <div class="scoreBoard">MINATI METRI:<span id="blocksTravelled">0</span></div>
+    </div>
+      <br>
+    <audio id="idAudio">
+        <source src="starwars.mp3"type="audio/ogg">
+    </audio>
+    <button onclick="play_Audio()" type="button">PUSNI MUZICHKA</button>
+    <button onclick="pause_Audio()" type="button">SPRI MUZICHKA</button>
+    <script>
+        var GFG = document.getElementById("idAudio");
+ 
+        function play_Audio() {
+            GFG.play();
+        }
+ 
+        function pause_Audio() {
+            GFG.pause();
+        }
+    </script>
+  </body>
+
+  <script src="zmiq.js"></script>
+</html>

@@ -1,0 +1,293 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vuproscheta</title>
+    </head>
+    <style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin: 0;
+    min-height: 100vh;
+    font-weight: bolder;
+}
+
+.quiz-container {
+    background-color: black;
+    color: goldenrod;
+    border-radius: 25px;
+    border: 5px solid darkgoldenrod;
+    box-shadow: 0 0 20px 5px rgba(250, 250, 250, 1.9);
+    overflow: hidden;
+    width: 900px;
+    max-width: 100%;
+}
+
+.quiz-header {
+    padding: 40px;
+}
+
+h2 {
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.7rem;
+    margin: 1rem 0;
+}
+
+ul li label {
+    cursor: pointer;
+}
+
+button {
+    background-color: goldenrod;
+    border: none;
+    color: black;
+    cursor: pointer;
+    display: block;
+    font-family: inherit;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 1rem;
+    font-weight: bolder;
+}
+
+.music{
+    height: 5%; 
+	width: 5%;
+	position: absolute;
+	top: 5.3vh;
+	left: 93vw;
+	z-index: 100;
+}
+        
+.menu_back {
+	height: 4.7%; 
+	width: 2.5%;
+	position: absolute;
+	top: 4.5vh;
+	left: 0.5vw;
+	z-index: 100;
+}
+        
+button:hover {
+    background-color: darkgoldenrod;
+}
+
+button:focus {
+    background-color: darkgoldenrod;
+    outline: none;
+}
+
+    </style>
+    <body>
+        <p>
+ <a href="https://www.miroegei.ml/main/">
+  <img class="menu_back" src="menu_back.png" alt="menu_back-img">
+ </a>
+</p>
+    <div class="music">
+    <img id="startOrStopImg" src="sound.png" alt="Play Button">
+<audio id="audio" src="sentrope.mp3" type="audio/mp3" ></audio>
+      </div>
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-header">
+                <h2 id="question">Question text</h2>
+                <ul>
+                    <li>
+                        <input
+                            type="radio"
+                            id="a"
+                            name="answer"
+                            class="answer"
+                        />
+                        <label id="a_text" for="a">Question</label>
+                    </li>
+                    <li>
+                        <input
+                            type="radio"
+                            id="b"
+                            name="answer"
+                            class="answer"
+                        />
+                        <label id="b_text" for="b">Question</label>
+                    </li>
+                    <li>
+                        <input
+                            type="radio"
+                            id="c"
+                            name="answer"
+                            class="answer"
+                        />
+                        <label id="c_text" for="c">Question</label>
+                    </li>
+                    <li>
+                        <input
+                            type="radio"
+                            id="d"
+                            name="answer"
+                            class="answer"
+                        />
+                        <label id="d_text" for="d">Question</label>
+                    </li>
+                </ul>
+            </div>
+            <button id="submit">PRATI</button>
+        </div>
+    </body>
+    <script>
+        const quizData = [
+    {
+        question: "KAK DA SI NAMERQ GADJE?",
+        a: "Ne znam",
+        b: "Ako imash otgovor na we.r.ginr@gmail.com",
+        c: "Mn si gotin dnes",
+        d: "Nikoi ot posochenite",
+        correct: "b",
+    },
+    {
+        question: "ZASHTO MIRO E GEI?",
+        a: "Taka",
+        b: "Ne znam",
+        c: "Gotino",
+        d: "Оk",
+        correct: "d",
+    },
+    {
+        question: "DO U KNOW DA WAE?",
+        a: "Ok",
+        b: "Ok",
+        c: "Ok",
+        d: "Ok",
+        correct: "b",
+    },
+    {
+        question: "What does HTML stand for?",
+        a: "Hypertext Markup Language",
+        b: "Cascading Style Sheet",
+        c: "Jason Object Notation",
+        d: "Helicopters Terminals Motorboats Lamborginis",
+        correct: "a",
+    },
+    {
+        question: "KAK SE KAZVAM?",
+        a: "Nicola",
+        b: "Miro",
+        c: "Sami",
+        d: "Nikoi ot posochenite",
+        correct: "b",
+    },
+    {
+        question: "AKO EDIN PETEL LETI S @$)km/h S KOLKO KILOMETRA LETI SAMOLETA?",
+        a: "Nicola",
+        b: "Miro",
+        c: "Sami",
+        d: "Nikoi ot posochenite",
+        correct: "b",
+    },
+    {
+        question: "ZDASTI?",
+        a: "ZDRAVEI",
+        b: "Miro",
+        c: "OK",
+        d: "Nikoi ot posochenite",
+        correct: "b",
+    },
+    {
+        question: "NQMASH LI SI SI RABOTA CHE SI TUK?",
+        a: "NE",
+        b: "Miro",
+        c: "IMAM SI",
+        d: "OTIVAM DA Q VURSHA",
+        correct: "b",
+    },
+];
+
+const quiz = document.getElementById("quiz");
+const answerEls = document.querySelectorAll(".answer");
+const questionEl = document.getElementById("question");
+const a_text = document.getElementById("a_text");
+const b_text = document.getElementById("b_text");
+const c_text = document.getElementById("c_text");
+const d_text = document.getElementById("d_text");
+const submitBtn = document.getElementById("submit");
+
+let currentQuiz = 0;
+let score = 0;
+
+loadQuiz();
+
+function loadQuiz() {
+    deselectAnswers();
+
+    const currentQuizData = quizData[currentQuiz];
+
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+}
+
+function getSelected() {
+    let answer = undefined;
+
+    answerEls.forEach((answerEl) => {
+        if (answerEl.checked) {
+            answer = answerEl.id;
+        }
+    });
+
+    return answer;
+}
+
+function deselectAnswers() {
+    answerEls.forEach((answerEl) => {
+        answerEl.checked = false;
+    });
+}
+
+submitBtn.addEventListener("click", () => {
+    const answer = getSelected();
+
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++;
+        }
+
+        currentQuiz++;
+        if (currentQuiz < quizData.length) {
+            loadQuiz();
+        } else {
+            quiz.innerHTML = `
+                <h2>Otgovori pravilno na ${score} ot ${quizData.length} vuprosa.</h2>
+                
+                <button onclick="location.reload()">Dai pak</button>
+            `;
+        }
+    }
+});
+document.getElementById("startOrStopImg").onclick = function() {
+    var audio = document.getElementById("audio");
+    if (audio.paused) audio.play();
+    else audio.pause();
+}
+        
+    </script>
+</html>

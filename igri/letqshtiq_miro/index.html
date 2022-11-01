@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <title>LETQSHTIQ MIRO</title>
+        <p>
+ <a href="https://www.miroegei.ml/main/">
+  <img class="menu_back" src="menu_back.png" alt="menu_back-img">
+ </a>
+</p>
+         <div class="suobshtenie">INSTRUKCII:<br>Nameri letqshtiq pederas<br>Na ekrana i go<br>Prebii</div>
+    <div class="music">
+    <img id="startOrStopImg" src="sound.png" alt="Play Button">
+<audio id="audio" src="sentrope.mp3" type="audio/mp3" ></audio>
+      </div>
+    </head>
+    <body>
+  <div class="container">
+    <img id='bg' src="bg.png" alt="bg">
+    <img id='duck' src="miro.png" alt="duck">
+    <div class='scoreContainer'>
+      <div id="score-text">TOCHKI</div>
+      <div id="score-counter">0</div>
+    </div>
+  </div>
+</body>
+<style>
+img {
+  max-width:100%;
+}
+#bg{
+  
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  
+}
+#duck{
+  margin:50px;
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  
+}
+.menu_back {
+	height: 4.7%; 
+	width: 2.5%;
+	position: absolute;
+	top: 4vh;
+	left: 0vw;
+	z-index: 100;
+}
+    
+.suobshtenie {
+    background-color: black;
+    padding: 3px;
+	position: absolute;
+	z-index: 15;
+	font-size: 3vh;
+	font-weight: bolder;
+	color: goldenrod;
+	top: 23vh;
+	left: 2vw;
+    border: 5px solid greenyellow;
+    border-radius: 30px;   
+	text-align: center;
+}
+   
+.music{
+    height: 5%; 
+	width: 5%;
+	position: absolute;
+	top: 5.3vh;
+	left: 95vw;
+	z-index: 100;
+}
+.scoreContainer{
+  background-color: black;
+  width: 10%;
+  height:10%;
+  color:greenyellow;
+  top:5%;
+  right:5%;
+  font-weight: bolder;
+  border: 5px solid green;
+  border-radius: 30px;
+  display:flex;
+  position:fixed;
+  flex-direction:column;
+  align-items:center;
+
+}
+#score-text{
+  font-size:1.5em;
+  font-weight: bolder;
+}
+#score-counter{
+  font-size:3.1em;  
+  font-weight:bold;
+  color:#06E515;
+}
+</style>
+
+
+<script>
+    const duck = document.querySelector('#duck');
+
+duck.addEventListener('click', ()=> {
+  increaseScore();
+  moveDuck();
+});
+
+const increaseScore = () => {
+  const score = document.querySelector("#score-counter").innerHTML;
+  const scoreHTML = document.querySelector("#score-counter");
+  let count = Number(score);
+  scoreHTML.innerHTML = count + 1;
+};
+
+const getRandomNum = (num) => {
+  return Math.floor(Math.random() * Math.floor(num));
+}
+const moveDuck = () => {
+  const w = window.innerWidth;
+  const h = window.innerHeight;  
+  duck.style.top = getRandomNum(w) + 'px';
+  duck.style.left = getRandomNum(h) + 'px';
+   
+}
+ document.getElementById("startOrStopImg").onclick = function() {
+    var audio = document.getElementById("audio");
+    if (audio.paused) audio.play();
+    else audio.pause();
+}
+</script>

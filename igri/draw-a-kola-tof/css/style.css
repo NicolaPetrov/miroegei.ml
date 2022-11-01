@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+
+
+body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
+
+button{
+  border-radius: 35px;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: none;
+  box-shadow: 0 0 20px 0 #000;
+  font-family: 'Oswald', sans-serif;
+
+}
+
+button:hover{
+  box-shadow: 0 0 20px 0 red;
+  padding: 15px;
+}
+
+#instructions{
+  position: fixed;
+  top: 2%;
+  left: 2%;
+}
+
+#reset{
+  position: fixed;
+  top: 10%;
+  left: 2%;
+}
+
+.grid {
+  align-items: center;
+  box-shadow: 0 0 20px 0 #000;
+  border-radius: 25px;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  max-height: 100%;
+  max-width: 900px;
+}
+
+.grid div {
+  flex-grow: 1;
+  height: 10%;
+  width: 10%;
+}
+
+.grid div.player {
+  background-image: url(../assets/kola-tof.png);
+  background-repeat: no-repeat;
+  background-size: 85px 50px;
+  background-position-x: 0;
+  background-position-y: 0;
+}
+

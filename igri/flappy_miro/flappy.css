@@ -1,0 +1,70 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 99vh;
+	width: 99vw;
+}
+
+.grub {
+	height: 99.6vh;
+	width: 99.6vw;
+	
+}
+
+.miro {
+	height: 100px;
+	width: 160px;
+	position: fixed;
+	top: 40vh;
+	left: 30vw;
+	z-index: 100;
+}
+
+.menu_back {
+	height: 60px;
+	width: 60px;
+	position: fixed;
+	top: 10vh;
+	left: 0vw;
+	z-index: 100;
+}
+
+.truba {
+	position: fixed;
+	top: 40vh;
+	left: 100vw;
+	height: 70vh;
+	width: 8vw;
+	background-color: darkslategrey;
+}
+
+.to4ki {
+	position: fixed;
+	z-index: 10;
+	height: 7vh;
+	font-size: 7vh;
+	font-weight: 100;
+	color: goldenrod;
+	top: 0;
+	left: 0;
+}
+
+.to4ki_val {
+	color: darkgoldenrod;
+}
+
+.suobshtenie {
+	position: fixed;
+	z-index: 15;
+	height: 15vh;
+	font-size: 15vh;
+	font-weight: bold;
+	color: goldenrod;
+	top: 5vh;
+	left: 10vw;
+	text-align: center;
+}

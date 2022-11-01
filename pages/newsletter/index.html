@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+    
+<head>
+    
+    <link rel = "icon" href = "zaglavie2.png" type = "image/x-icon">
+    <title>Newsletter</title>
+</head>
+
+<style> 
+
+p{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: white;
+}
+    
+ input{
+    width: 35%; 
+    padding: 15px; 
+    border: 1px solid white; 
+    text-align: center; 
+    border-radius: 25px;
+}
+    
+.buttons{
+    width: 5%; 
+    padding: 15px; 
+    border: 0px solid white; 
+    text-align: center;  
+    border-radius: 25px; 
+    font-weight: bolder; 
+    cursor: pointer; 
+    opacity: 1;
+}
+    
+body{
+    font-weight: bolder;
+    text-align: center;
+    background-image: url("bg1.jpg");
+    background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+    font-family: Verdana, sans-serif;
+    filter: alpha(opacity=80);
+    text-shadow: 0.5px 0 0 #333333, -0.5px 0 0 #333333, 0 0.5px 0 #333333, 0 -0.5px 0 #333333, 1.5px 1.5px #333333, -0.5px -1.5px 0 #333333, 0.5px -1.5px 0 #333333, -0.5px 1.5px 0 #333333;
+}
+    
+.fields{
+    padding-top: 5%;
+}
+    
+
+    
+    @media screen and (max-width: 800px){
+        
+        input{
+            width: 55%; 
+            padding: 10px; 
+            border: 1px solid white; 
+            text-align: center; 
+            border-radius: 25px;
+        }
+        
+        .buttons{
+           width: 10%; padding: 10px; border: 0px solid white; text-align: center;  border-radius: 25px; font-weight: bolder; cursor: pointer; opacity: 1; 
+        }
+    }
+    
+    .buttons:hover{opacity: 0.6;}
+</style>
+
+<body>
+    
+<form action="mail.php" method="POST">
+    <div class="fields">
+<p>VASHETO IME</p> <input type="text" name="name"   >
+    
+<p>Email</p> <input type="text" name="email" >
+
+<p>KOLKO CHESTO ISKATE DA POLUCHAVATE NEWSLETTER?</p>
+<select name="priority" size="1" style="width: 15%; padding: 15px; border: 5px solid white; text-align: center;  border-radius: 25px;">
+<option value="Vseki Den">Vseki Den</option>
+<option value="Vednuj Mesechno">Vednuj Mesechno</option>
+<option value="Vednuj na 6 Meseca">Vednuj na 6 Meseca</option>
+<option value="Nikoga">Nikoga</option>
+</select>
+<br />
+
+<p>PRICHINA ZA ABONIRANE</p>
+<select name="type" size="1" style="width: 15%; padding: 15px; border: 5px solid white; text-align: center;  border-radius: 25px;">
+<option value="Ne Znam">Ne Znam</option>
+<option value="Bqh Prinuden">Bqh Nakaran Da GO Napravq</option>
+<option value="Informaciq Za Miro">Informaciq Za Miro</option>
+<option value="Haresvam Saita">Mnogo Hubaf sait I Iskam Da Poluchavam Novini</option>
+</select>
+<br />
+    <div class="butonns">
+<input type="submit" value="ABONIRAI SE" style="width: 7%; padding: 15px; border: 0px solid white; text-align: center;  border-radius: 25px; font-weight: bolder; cursor: pointer; opacity: 1; margin-top: 5px;">
+    </div>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Nacionalnata Lotariq Na Kola Tof</title>
+    <link rel = "icon" href = "zaglavie2.png" type = "image/x-icon">
+
+    <style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Righteous&family=Staatliches&display=swap');
+
+    body{
+        background: #77773c;        
+    }
+
+    header{
+        font-weight: bolder;
+        padding: 15px;
+        margin-left: 55%;
+        font-size: 4rem;
+        color: #aaaa55;
+        border: 10px solid #aaaa55;
+        background: #222211;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        text-align: center;
+        font-family: 'Acme', sans-serif;
+
+    }
+
+    h1{
+        font-weight: bolder;
+        padding: 15px;
+        margin-left: 55%;
+        font-size: 2rem;
+        color: #aaaa55;
+        border: 10px solid #aaaa55;
+        background: #222211;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        text-align: center;
+        font-family: 'Staatliches', cursive;
+
+    }
+
+    text{
+        font-family:Helvetica, Arial, sans-serif;
+        font-size:15px;
+        pointer-events:none;
+        font-weight: bolder;
+    }
+    #chart{
+        position:absolute;
+        width:500px;
+        height:500px;
+        top:0;
+        left:20px;
+    }
+    #question{
+        position: absolute;
+        width:400px;
+        height:500px;
+        top:0;
+        left:520px;
+    }
+    #question h1{
+        font-size: 50px;
+        font-weight: bold;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        position: absolute;
+        padding-left: 10px;
+        margin: 0;
+        top:50%;
+        -webkit-transform:translate(0,-50%);
+                transform:translate(0,-50%);
+    }
+    </style>
+    
+</head>
+<body>
+    <header>NACIONALNATA LOTARIQ NA KOLA TOF</header>
+    <h1>INSTRUKCII:<br>ZAVURTETE KOLELOTO I POSLEDNATA OSTANALA SUMA E ZA VAS</h1>
+    <div id="chart"></div>
+    <div id="question"><h1></h1></div>
+    
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        var padding = {top:20, right:40, bottom:0, left:0},
+            w = 500 - padding.left - padding.right,
+            h = 500 - padding.top  - padding.bottom,
+            r = Math.min(w, h)/2,
+            rotation = 0,
+            oldrotation = 0,
+            picked = 100000,
+            oldpick = [],
+            color = d3.scale.category20();
+        
+        var data = [
+                    {"label":"SUMA 1",  "value":1,  "question":"0.50 lv"}, // padding
+                    {"label":"SUMA 2",  "value":1,  "question":"1 lv"}, //font-family
+                    {"label":"SUMA 3",  "value":1,  "question":"1.50 lv"}, //color
+                    {"label":"SUMA 4",  "value":1,  "question":"2 lv"}, //font-weight
+                    {"label":"SUMA 5",  "value":1,  "question":"2.50 lv"}, //font-size
+                    {"label":"SUMA 6",  "value":1,  "question":"3 lv"}, //background-color
+                    {"label":"SUMA 7",  "value":1,  "question":"3.50 lv"}, //nesting
+                    {"label":"SUMA 8",  "value":1,  "question":"4 lv"}, //bottom
+                    {"label":"SUMA 9",  "value":1,  "question":"4.50 lv"}, //sans-serif
+                    {"label":"SUMA 10", "value":1, "question":"5 lv"}, //period
+                    {"label":"SUMA 11", "value":1, "question":"7 lv"}, //pound sign
+                    {"label":"SUMA 12", "value":1, "question":"9 lv"}, //<body>
+                    {"label":"SUMA 13", "value":1, "question":"10 lv"}, //<ul>
+                    {"label":"SUMA 14", "value":1, "question":"15 lv"}, //<h1>
+                    {"label":"SUMA 15", "value":1, "question":"20 lv"}, //margin
+                    {"label":"SUMA 16", "value":1, "question":"25 lv"}, //< >
+                    {"label":"SUMA 17", "value":1, "question":"30 lv"}, // { }
+                    {"label":"SUMA 18", "value":1, "question":"35 lv"}, //<p>
+                    {"label":"SUMA 19", "value":1, "question":"40 lv"}, //<!DOCTYPE html>
+                    {"label":"SUMA 20", "value":1, "question":"50 lv"}, //<head>
+                    {"label":"SUMA 21", "value":1, "question":"60 lv"}, // colon
+                    {"label":"SUMA 22", "value":1, "question":"70 lv"}, // <style>
+                    {"label":"SUMA 23", "value":1, "question":"80 lv"}, // .html
+                    {"label":"SUMA 24", "value":1, "question":"90 lv"}, // HTML
+                    {"label":"SUMA 25", "value":1, "question":"100 lv"}, // CSS
+                    {"label":"SUMA 26", "value":1, "question":"150 lv"}, // JavaScript
+                    {"label":"SUMA 27", "value":1, "question":"200 lv"}, // border
+                    {"label":"SUMA 28", "value":1, "question":"250 lv"},//semi-colon
+                    {"label":"SUMA 29", "value":1, "question":"300 lv"}, //100%
+                    {"label":"SUMA 30", "value":1, "question":"1000 lv"} //comma
+        ];
+
+
+        var svg = d3.select('#chart')
+            .append("svg")
+            .data([data])
+            .attr("width",  w + padding.left + padding.right)
+            .attr("height", h + padding.top + padding.bottom);
+
+        var container = svg.append("g")
+            .attr("class", "chartholder")
+            .attr("transform", "translate(" + (w/2 + padding.left) + "," + (h/2 + padding.top) + ")");
+
+        var vis = container
+            .append("g");
+            
+        var pie = d3.layout.pie().sort(null).value(function(d){return 1;});
+
+        var arc = d3.svg.arc().outerRadius(r);
+
+        var arcs = vis.selectAll("g.slice")
+            .data(pie)
+            .enter()
+            .append("g")
+            .attr("class", "slice");
+            
+
+        arcs.append("path")
+            .attr("fill", function(d, i){ return color(i); })
+            .attr("d", function (d) { return arc(d); });
+
+        arcs.append("text").attr("transform", function(d){
+                d.innerRadius = 0;
+                d.outerRadius = r;
+                d.angle = (d.startAngle + d.endAngle)/2;
+                return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")translate(" + (d.outerRadius -10) +")";
+            })
+            .attr("text-anchor", "end")
+            .text( function(d, i) {
+                return data[i].label;
+            });
+
+        container.on("click", spin);
+
+
+        function spin(d){
+            
+            container.on("click", null);
+
+            console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
+            if(oldpick.length == data.length){
+                console.log("done");
+                container.on("click", null);
+                return;
+            }
+
+            var  ps       = 360/data.length,
+                 pieslice = Math.round(1440/data.length),
+                 rng      = Math.floor((Math.random() * 1440) + 360);
+                
+            rotation = (Math.round(rng / ps) * ps);
+            
+            picked = Math.round(data.length - (rotation % 360)/ps);
+            picked = picked >= data.length ? (picked % data.length) : picked;
+
+
+            if(oldpick.indexOf(picked) !== -1){
+                d3.select(this).call(spin);
+                return;
+            } else {
+                oldpick.push(picked);
+            }
+
+            rotation += 90 - Math.round(ps/2);
+
+            vis.transition()
+                .duration(3000)
+                .attrTween("transform", rotTween)
+                .each("end", function(){
+
+                    d3.select(".slice:nth-child(" + (picked + 1) + ") path")
+                        .attr("fill", "#111");
+
+                    d3.select("#question h1")
+                        .text(data[picked].question);
+
+                    oldrotation = rotation;
+                
+                    container.on("click", spin);
+                });
+        }
+
+        svg.append("g")
+            .attr("transform", "translate(" + (w + padding.left + padding.right) + "," + ((h/2)+padding.top) + ")")
+            .append("path")
+            .attr("d", "M-" + (r*.15) + ",0L0," + (r*.05) + "L0,-" + (r*.05) + "Z")
+            .style({"fill":"black"});
+
+        container.append("circle")
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("r", 60)
+            .style({"fill":"white","cursor":"pointer"});
+
+        container.append("text")
+            .attr("x", 0)
+            .attr("y", 15)
+            .attr("text-anchor", "middle")
+            .text("SPIN")
+            .style({"font-weight":"bold", "font-size":"30px"});
+        
+        
+        function rotTween(to) {
+          var i = d3.interpolate(oldrotation % 360, rotation);
+          return function(t) {
+            return "rotate(" + i(t) + ")";
+          };
+        }
+        
+        
+        function getRandomNumbers(){
+            var array = new Uint16Array(1000);
+            var scale = d3.scale.linear().range([360, 1440]).domain([0, 100000]);
+
+            if(window.hasOwnProperty("crypto") && typeof window.crypto.getRandomValues === "function"){
+                window.crypto.getRandomValues(array);
+                console.log("works");
+            } else {
+                for(var i=0; i < 1000; i++){
+                    array[i] = Math.floor(Math.random() * 100000) + 1;
+                }
+            }
+
+            return array;
+        }
+
+    </script>
+</body>
+</html>

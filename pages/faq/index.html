@@ -1,0 +1,204 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FAQ</title>
+    <div class="zaglavie">CHESTO ZADAVANI VUPROSI</div>
+    <div class="zaglavie1">CHETETE, ZA DA SE OBRAZOVATE I DA STANETE ZNAESHTI I MOJESHTI GRAJDANI</div>
+    <p>
+ <a href="https://www.miroegei.ml/main/">
+  <img class="menu_back" src="menu_back.png" alt="menu_back-img">
+ </a>
+</p>
+    <div class="music">
+    <img id="startOrStopImg" src="sound.png" alt="Play Button">
+<audio id="audio" src="sentrope.mp3" type="audio/mp3" ></audio>
+      </div>
+<style>
+    
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color: black;
+}
+    
+.zaglavie{
+            position: absolute;
+            color: darkgoldenrod;
+            font-size: 3.5vw;
+            text-align: center;
+            top:0.7vw;
+            left: 27vw;
+            font-weight: bolder;
+        }
+    
+.zaglavie1{
+            position: absolute;
+            color: darkgoldenrod;
+            font-size: 1.5vw;
+            text-align: center;
+            top:4.5vw;
+            left: 21.2vw;
+            font-weight: bolder;
+        }
+        
+.menu_back {
+	height: 4.7%; 
+	width: 2.5%;
+	position: absolute;
+	top: 4vh;
+	left: 0vw;
+	z-index: 100;
+}
+   
+.music{
+    height: 5%; 
+	width: 5%;
+	position: absolute;
+	top: 5.3vh;
+	left: 95vw;
+	z-index: 100;
+}    
+
+.accordion {
+  background-color: black;
+  color: gray;
+  font-weight: bolder;
+  cursor: pointer;
+  padding: 25px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+  transition: 0.4s;
+  border-radius: 20px;
+  border: 1px solid white;
+  text-align:center;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 25px;
+  display: none;
+  background-color: gray;
+  font-weight: bolder;
+  font-size: 2vw;
+  overflow: hidden;
+  border: 1px solid white;
+  border-radius:20px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h3><br><br><br><br><br><br></h3>
+<button class="accordion">Zashto Miro e gei?</button>
+<div class="panel">
+  <p>Ne znam. Taka se e rodil pederasa na huq mi okrasa.</p>
+</div>
+
+<button class="accordion">Zashto Miro e simp?</button>
+<div class="panel">
+  <p>I tova sushto ne znam. Vsushnost znam no ne mi se pishe interpretativno suchinenie.</p>
+</div>
+
+<button class="accordion">Zashto Sami pravi vertoletcheta?</button>
+<div class="panel">
+  <p>Zashtoto e evrein i iska malko shekeli.</p>
+</div>
+
+    <button class="accordion">Zashto Nicola sushtestvuva?</button>
+<div class="panel">
+  <p>I az oshte ne moga da otgovorq na tozi vupros, no ako go nqmashe nqmashe da go ima i tozi sait.</p>
+</div>
+    <button class="accordion">Teksta na Smells like teen spirit?</button>
+<div class="panel">
+  <p>Load up on guns, bring your friends<br>
+It's fun to lose and to pretend<br>
+She's over-bored and self-assured<br>
+Oh no, I know a dirty word<br>
+Hello, hello, hello, how low<br>
+Hello, hello, hello, how low<br>
+Hello, hello, hello, how low<br>
+Hello, hello, hello<br>
+With the lights out, it's less dangerous<br>
+Here we are now, entertain us<br>
+I feel stupid and contagious<br>
+Here we are now, entertain us<br>
+A mulatto, an albino, a mosquito, my libido<br>
+Yeah, hey<br>
+I'm worse at what I do best<br>
+And for this gift I feel blessed<br>
+Our little group has always been<br>
+And always will until the end<br>
+Hello, hello, hello, how low<br>
+Hello, hello, hello, how low<br>
+Hello, hello, hello, how low<br>
+Hello, hello, hello<br>
+With the lights out, it's less dangerous<br>
+Here we are now, entertain us<br>
+I feel stupid and contagious<br>
+Here we are now,…<br>
+And I forget just why I taste<br>
+Oh yeah, I guess it makes me smile<br>
+I found it hard, was hard to find<br>
+Oh well, whatever, never mind<br>
+Hello, hello, hello, how low<br>
+Hello, hello, hello, how low<br>
+Hello, hello, hello, how low<br>
+Hello, hello, hello<br>
+With the lights out, it's less dangero.</p>
+</div>
+    <button class="accordion">Koi e Curt Cobain?</button>
+<div class="panel">
+  <p>Qnica e tupa.</p>
+</div>
+    <button class="accordion">Gotini pesni na Scorpions?</button>
+<div class="panel">
+  <p>Vsichkite.</p>
+</div>
+    <button class="accordion">Zashto Tedo e ciganin?</button>
+<div class="panel">
+  <p>Taka se e rodil.</p>
+</div>
+    <button class="accordion">Kude e konq i karucata na Tedo?</button>
+<div class="panel">
+  <p>Otkradnaha mu gi.</p>
+</div>
+    <button class="accordion">Kak da razkarame Koshu za po-malko ot 30 secundi?</button>
+<div class="panel">
+  <p>Blusni go s kola. Molq te!</p>
+</div>
+    
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+    document.getElementById("startOrStopImg").onclick = function() {
+    var audio = document.getElementById("audio");
+    if (audio.paused) audio.play();
+    else audio.pause();
+}
+</script>
+
+</body>
+</html>

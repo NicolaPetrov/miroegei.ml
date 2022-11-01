@@ -1,0 +1,253 @@
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nameri Kartata</title>
+</head>
+    <style>
+body {
+  font-family: Arial;
+  background-color: black;
+}
+        
+.grid {
+  position: absolute;
+  top: 10vw;
+  left: 31vw;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 25px;
+  border:19px solid darkgoldenrod;
+  width: 800px;
+  height: 500px;
+}
+        
+.suobshtenie {
+	position: absolute;
+	z-index: 15;
+	font-size: 3vh;
+	font-weight: bolder;
+	color: goldenrod;
+	top: 5vh;
+	left: 46vw;
+	text-align: center;
+}
+        
+.suobshtenie1 {
+	position: absolute;
+	z-index: 15;
+	font-size: 3.5vh;
+	font-weight: bolder;
+	color: goldenrod;
+	top: 30vh;
+	left: 4.5vw;
+    border-radius:25px;
+    border: 5px solid darkgoldenrod;
+    padding: 6px;
+	text-align: center;
+}
+        
+.menu_back {
+	height: 4.7%; 
+	width: 2.5%;
+	position: absolute;
+	top: 4vh;
+	left: 0vw;
+	z-index: 100;
+}
+        
+.music{
+    height: 5%; 
+	width: 5%;
+	position: absolute;
+	top: 5.3vh;
+	left: 95vw;
+	z-index: 100;
+}
+    </style>
+<body>
+
+
+  <div class="grid">
+  </div>
+<p>
+ <a href="https://www.miroegei.ml/main/">
+  <img class="menu_back" src="menu_back.png" alt="menu_back-img">
+ </a>
+</p>
+    <div class="music">
+    <img id="startOrStopImg" src="sound.png" alt="Play Button">
+<audio id="audio" src="sentrope.mp3" type="audio/mp3" ></audio>
+      </div>
+    <div class="suobshtenie">REZULTAT : <span id="result">0</span></div>
+    <div class="suobshtenie1">INSTRUKCII:<br><br>Namerete vsichki karti<br>I shte poluchite<br>Celufka ot men</div>
+
+</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+  const cardArray = [
+    {
+      name: '1',
+      img: '1.png',
+    },
+    {
+      name: 'monke',
+      img: 'monke.png',
+    },
+    {
+      name: '2',
+      img: '2.png'
+    },
+    {
+      name: '3',
+      img: '3.png'
+    },
+    {
+      name: '4',
+      img: '4.png'
+    },
+    {
+      name: '5',
+      img: '5.png'
+    },
+    {
+      name: '6',
+      img: '6.png'
+    },
+    {
+      name: '7',
+      img: '7.png',
+    },
+    {
+      name: '8',
+      img: '8.png',
+    },
+    {
+      name: '9',
+      img: '9.png',
+    },
+    {
+      name: '10',
+      img: '10.png',
+    },
+    {
+      name: '11',
+      img: '11.png',
+    },
+    {
+      name: '1',
+      img: '1.png'
+    },
+    {
+      name: 'monke',
+      img: 'monke.png',
+    },
+    {
+      name: '2',
+      img: '2.png'
+    },
+    {
+      name: '3',
+      img: '3.png'
+    },
+    {
+      name: '4',
+      img: '4.png'
+    },
+    {
+      name: '5',
+      img: '5.png'
+    },
+    {
+      name: '6',
+      img: '6.png'
+    },
+     {
+      name: '7',
+      img: '7.png',
+    },
+    {
+      name: '8',
+      img: '8.png',
+    },
+    {
+      name: '9',
+      img: '9.png',
+    },
+    {
+      name: '10',
+      img: '10.png',
+    },
+    {
+      name: '11',
+      img: '11.png',
+    }
+  ]
+
+  cardArray.sort(() => 0.5 - Math.random())
+
+  const grid = document.querySelector('.grid')
+  const resultDisplay = document.querySelector('#result')
+  let cardsChosen = []
+  let cardsChosenId = []
+  let cardsWon = []
+
+  function createBoard() {
+    for (let i = 0; i < cardArray.length; i++) {
+      const card = document.createElement('img')
+      card.setAttribute('src', 'blank.png')
+      card.setAttribute('data-id', i)
+      card.addEventListener('click', flipCard)
+      grid.appendChild(card)
+    }
+  }
+
+  function checkForMatch() {
+    const cards = document.querySelectorAll('img')
+    const optionOneId = cardsChosenId[0]
+    const optionTwoId = cardsChosenId[1]
+    
+    if(optionOneId == optionTwoId) {
+      cards[optionOneId].setAttribute('src', 'blank.png')
+      cards[optionTwoId].setAttribute('src', 'blank.png')
+      alert('AWE BALUK DVA PUTI NATISKASH EDNA I SUSHTA SNIMKA!')
+    }
+    else if (cardsChosen[0] === cardsChosen[1]) {
+      alert('BRAFO OTKRI DVE EDNAKVI')
+      cards[optionOneId].setAttribute('src', 'black.png')
+      cards[optionTwoId].setAttribute('src', 'black.png')
+      cards[optionOneId].removeEventListener('click', flipCard)
+      cards[optionTwoId].removeEventListener('click', flipCard)
+      cardsWon.push(cardsChosen)
+    } else {
+      cards[optionOneId].setAttribute('src', 'blank.png')
+      cards[optionTwoId].setAttribute('src', 'blank.png')
+    
+    }
+    cardsChosen = []
+    cardsChosenId = []
+    resultDisplay.textContent = cardsWon.length
+    if  (cardsWon.length === cardArray.length/2) {
+      resultDisplay.textContent = 'BRAFO OTKRI GI VSICHKI. POLUCJAVASH CELUFKA!'
+    }
+  }
+
+  //flip your card
+  function flipCard() {
+    let cardId = this.getAttribute('data-id')
+    cardsChosen.push(cardArray[cardId].name)
+    cardsChosenId.push(cardId)
+    this.setAttribute('src', cardArray[cardId].img)
+    if (cardsChosen.length ===2) {
+      setTimeout(checkForMatch, 400)
+    }
+  }
+
+  createBoard()
+})
+        document.getElementById("startOrStopImg").onclick = function() {
+    var audio = document.getElementById("audio");
+    if (audio.paused) audio.play();
+    else audio.pause();
+}
+    </script>
+</html>

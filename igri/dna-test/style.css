@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Stick+No+Bills:wght@800&display=swap');
+
+:root{
+  --color: #730099;
+  --white: #262626;
+}
+
+body{
+  background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(93,9,121,1) 79%, rgba(255,214,0,1) 100%);
+  background-size: cover;
+  font-family: 'Stick No Bills', sans-serif;
+  font-size: 25px;
+  color: var(--white);
+}
+
+header{
+  
+  font-weight: bolder;
+  font-size: 4rem;
+  color: #fff;
+}
+
+fieldset {
+          background: #a366ff;
+          border: 10px solid var(--color);
+          margin-bottom: 10px;
+          width: 720px;
+          border-radius: 25px;
+        }
+        
+        label {
+          width: 180px;
+          display: inline-block;
+          text-align: right;
+          vertical-align: top
+        }
+        
+        label:hover {
+          font-size: 28px
+        }
+        
+        span {
+          text-align: center;
+          vertical-align: top
+        }
+        
+        textarea {
+          width: 360px;
+          height: 50px
+        }
+        
+        .left {
+          margin-top: 10px;
+          padding: 5px;
+          border-radius: 25px;
+          background: red;
+          color: white
+        }
+        
+        .right {
+          margin-top: 10px;
+          padding: 5px;
+          border-radius: 25px;
+          background: purple;
+          color: white
+        }
+        
+        #method {
+          width: auto
+        }
+
+        input{
+          color: #fff;
+          font-weight: bolder;
+          font-size: 1.5rem;
+          background: var(--color);
+          padding: 10px;
+          border: none;
+          border-radius: 15px;
+          
+        }
+
+        select{
+          color: #fff;
+          font-weight: bolder;
+          font-size: 1.5rem;
+          background: var(--color);
+          padding: 10px;
+          border: none;
+          border-radius: 15px;
+          
+        }

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Puteshestviqta Na Miro I Kompaniq</title>
+  <link rel = "icon" href = "zaglavie2.png" type = "image/x-icon">
+</head>
+<body>
+  <header>PUTESHESTVIQTA NA MIRO<br>I KOMPANIQ</header>
+  <div class="container">
+    <div id="text">Text</div>
+    <div id="option-buttons" class="btn-grid">
+      <button class="btn">Option 1</button>
+      <button class="btn">Option 2</button>
+      <button class="btn">Option 3</button>
+      <button class="btn">Option 4</button>
+    </div>
+  </div>
+</body>
+
+<style>
+  
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Palette+Mosaic&family=Varela+Round&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Gotham Rounded;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #333;
+}
+
+header{
+  position: absolute;
+  top: 5vh;
+  left: 27%;
+  font-weight: bolder;
+  font-size: 3rem;
+  color: #e68a00;
+  padding-bottom: 20px;
+  font-family: 'Palette Mosaic', cursive;
+}
+
+@media  screen and (max-width: 800px) {
+
+  header{
+    font-size: 1.5rem;
+    top: 1vh;
+  }
+  
+}
+
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: #ffa31a;
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 0 10px 2px;
+  font-weight: bolder;
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #333;
+  border: 3px solid #804d00;
+  border-radius: 50px;
+  padding: 10px 15px;
+  color: #e68a00;
+  outline: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.btn:hover {
+  background: black;
+  border-color: black;
+  opacity: 0.7;
+}
+  </style>
+
+  <script>
+
+const textElement = document.getElementById('text')
+const optionButtonsElement = document.getElementById('option-buttons')
+
+let state = {}
+
+function startGame() {
+  state = {}
+  showTextNode(1)
+}
+
+function showTextNode(textNodeIndex) {
+  const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+  textElement.innerText = textNode.text
+  while (optionButtonsElement.firstChild) {
+    optionButtonsElement.removeChild(optionButtonsElement.firstChild)
+  }
+
+  textNode.options.forEach(option => {
+    if (showOption(option)) {
+      const button = document.createElement('button')
+      button.innerText = option.text
+      button.classList.add('btn')
+      button.addEventListener('click', () => selectOption(option))
+      optionButtonsElement.appendChild(button)
+    }
+  })
+}
+
+function showOption(option) {
+  return option.requiredState == null || option.requiredState(state)
+}
+
+function selectOption(option) {
+  const nextTextNodeId = option.nextText
+  if (nextTextNodeId <= 0) {
+    return startGame()
+  }
+  state = Object.assign(state, option.setState)
+  showTextNode(nextTextNodeId)
+}
+
+const textNodes = [
+
+{
+    id: 1,
+    text: 'IZBERI SI GEROI.',
+    options: [
+      {
+        text: 'MIRO',
+        setState: { blueGoo: true },
+        nextText: 2
+      },
+      {
+        text: 'SAMI',
+        nextText: 2
+      },
+      {
+        text: 'KOLA TOF',
+        setState: { blueGoo: true },
+        nextText: 2
+      },
+      {
+        text: 'Toshku Mangala',
+        setState: { blueGoo: true },
+        nextText: 2
+      }
+    ]
+  },
+  {
+    id: 2,
+    text: 'Subujdash se v apartamenta na Miro i vijdash burkan s laina do teb.',
+    options: [
+      {
+        text: 'Vzimash burkana s lainata',
+        setState: { blueGoo: true },
+        nextText: 3
+      },
+      {
+        text: 'Ostavqsh go tam kudeto e',
+        nextText: 3
+      }
+    ]
+  },
+  {
+    id: 3,
+    text: 'Razhojdash se, turseiki izhod i vijdash Koshu bez gashti. Koshu ti predlaga zdelka',
+    options: [
+      {
+        text: 'Dai mu burkana s laina i toi shte ti dade dildo',
+        requiredState: (currentState) => currentState.blueGoo,
+        setState: { blueGoo: false, sword: true },
+        nextText: 4
+      },
+      {
+        text: 'Dai mu burkana s laina i toi shte ti dade tendjura',
+        requiredState: (currentState) => currentState.blueGoo,
+        setState: { blueGoo: false, shield: true },
+        nextText: 4
+      },
+      {
+        text: 'Ignorirai Koshku',
+        nextText: 4
+      }
+    ]
+  },
+  {
+    id: 4,
+    text: 'Sled kato izlizash ot apartamenta, si izmoren i namirash blok, do apartamenta na yanica.',
+    options: [
+      {
+        text: 'Vlizash v apartamenta na Yanica, turseiki hamstera i',
+        nextText: 5
+      },
+      {
+        text: 'Vlizash prez prozoreca v nqkoi random apartament',
+        nextText: 6
+      },
+      {
+        text: 'Vlizash da spish v mazeto',
+        nextText: 7
+      }
+    ]
+  },
+  {
+    id: 5,
+    text: 'Turseiki hamstera na Yanica, tq te namira i te izqjda.',
+    options: [
+      {
+        text: 'Restart',
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 6,
+    text: 'Pribirat se sobstvenicite na apartamenta i te pravqt na turshiq.',
+    options: [
+      {
+        text: 'Restart',
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 7,
+    text: 'Subujdash se energichen i gotov za priklucheniq.',
+    options: [
+      {
+        text: 'Vlezni v apartamenta na Yanica',
+        nextText: 8
+      }
+    ]
+  },
+  {
+    id: 8,
+    text: 'Dokato tursish hamstera, Yanica te vijda.',
+    options: [
+      {
+        text: 'Opitai se da izbqgash',
+        nextText: 9
+      },
+      {
+        text: 'Atakuvai q s dildoto',
+        requiredState: (currentState) => currentState.sword,
+        nextText: 10
+      },
+      {
+        text: 'Skrii se zad tendjurata',
+        requiredState: (currentState) => currentState.shield,
+        nextText: 11
+      },
+      {
+        text: 'Hvurli burkana s laina po neq',
+        requiredState: (currentState) => currentState.blueGoo,
+        nextText: 12
+      }
+    ]
+  },
+  {
+    id: 9,
+    text: 'Ne uzpqvash da izbqgash i Yanica ti izqjda glavata.',
+    options: [
+      {
+        text: 'Restart',
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 10,
+    text: 'Mnogo si tup! Yanica ne moje da bude ubita s nqkakvo dildo.',
+    options: [
+      {
+        text: 'Restart',
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 11,
+    text: 'Yanica se izsmq, prudna i se nasra vurhu shtita ti. Game Over!',
+    options: [
+      {
+        text: 'Restart',
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 12,
+    text: 'Sled kato hvurli burkana s laina po kratunata na Yanica, ti q UBI. Reshavash da zajiveesh v noviq s apartament s neiniq hamster i gotiniq sused na ime Kola Tof.',
+    options: [
+      {
+        text: 'Chestito! Specheli igrata!',
+        nextText: -1
+      }
+    ]
+  }
+]
+
+startGame()
+
+    </script>
+</html>

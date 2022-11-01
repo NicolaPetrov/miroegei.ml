@@ -1,0 +1,19 @@
+.menu_back {
+	height: 90px;
+	width: 90px;
+	position: fixed;
+	top: -1vh;
+	left: 0vw;
+	z-index: 100;
+}
+.suobshtenie {
+	position: fixed;
+	z-index: 15;
+	height: 15vh;
+	font-size: 15vh;
+	font-weight: 150;
+	color: goldenrod;
+	top: 5vh;
+	left: 10vw;
+	text-align: center;
+}

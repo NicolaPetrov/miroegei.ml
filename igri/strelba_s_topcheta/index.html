@@ -1,0 +1,241 @@
+<html>
+    <head>
+<canvas id="myCanvas" width="980" height="820"></canvas>
+        <title>Strelba S Topcheta</title>
+        <link rel = "icon" href = "assets/zaglavie2.png" type = "image/x-icon">
+         <p>
+ <a href="https://www.miroegei.ml/main/">
+  <img class="menu_back" src="assets/menu_back.png" alt="menu_back-img">
+ </a>
+</p>
+    <div class="music">
+    <img id="startOrStopImg" src="assets/sound.png" alt="Play Button">
+<audio id="audio" src="assets/sentrope.mp3" type="audio/mp3" ></audio>
+      </div>
+        <div class="instrukcii">INSTRUKCII:<br><br>Kontroliraite sus strelkite<br>Gledaite da ne izpusnete<br>Topcheto</div>
+    </head>
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+.menu_back {
+	height: 4.7%; 
+	width: 2.5%;
+	position: absolute;
+	top: 4vh;
+	left: 0vw;
+	z-index: 100;
+}
+   
+.music{
+    height: 5%; 
+	width: 5%;
+	position: absolute;
+	top: 5.3vh;
+	left: 95vw;
+	z-index: 100;
+}
+    
+.instrukcii{
+    position: absolute;
+    color: darkgoldenrod;
+    font-size: 1.5vw;
+    text-align: center;
+    top:5vw;
+    left: 77vw;
+    border: 3px solid gray;
+    border-radius: 25px;
+    font-weight: bolder;
+    padding: 5px;
+}
+    
+#myCanvas {
+  position: absolute;
+  top: 5vh;
+  left: 22vw;
+  background: black;
+  display: block;
+  font-weight: bolder;
+  font-size: 1vw;
+  border-radius: 25px;
+  border: 10px solid gray;
+  margin: 0 auto;
+}
+</style>
+
+<script>
+var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext('2d');
+
+var x = canvas.width / 2;
+var y = canvas.height - 30; 
+
+var dx = 8;
+var dy = -8;
+var ballRadius = 10;
+var paddleHeight = 15;
+var paddleWidth = 120;
+var paddleX = (canvas.width - paddleWidth) /2;
+var rightPressed = false;
+var leftPressed = false;
+var brickRowCount = 6;
+var brickColumnCount = 7;
+var brickWidth = 120;
+var brickHeight = 30;
+var brickPadding = 15;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 20;
+var score = 0;
+var lives = 5;
+
+var bricks = [];
+for (c = 0; c < brickColumnCount; c++) {
+  bricks[c] = [];
+  for (r = 0; r < brickRowCount; r++) {
+    bricks[c][r] = {
+      x: 0,
+      y: 0,
+      status: 1
+    };
+  }
+}
+
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
+
+function keyDownHandler(e) {
+  if (e.keyCode === 39) {
+    rightPressed = true;
+  } else if (e.keyCode === 37) {
+    leftPressed = true;
+  }
+}
+
+function keyUpHandler(e) {
+  if (e.keyCode === 39) {
+    rightPressed = false;
+  } else if (e.keyCode === 37) {
+    leftPressed = false;
+  }
+}
+
+function drawBricks() {
+  for (c = 0; c < brickColumnCount; c++) {
+    for (r = 0; r < brickRowCount; r++) {
+      if (bricks[c][r].status === 1) {
+        var brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+        var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+        bricks[c][r].x = brickX;
+        bricks[c][r].y = brickY;
+        ctx.beginPath();
+        ctx.rect(brickX, brickY, brickWidth, brickHeight);
+        ctx.fillStyle = "darkcyan";
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+  }
+}
+
+function drawBall() {
+  ctx.beginPath();
+  ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+  ctx.fillStyle = "#1a66ff";
+  ctx.fill();
+  ctx.closePath(); 
+}
+
+function drawPaddle() {
+  ctx.beginPath();
+  ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+  ctx.fillStyle = "#1a66ff";
+  ctx.fill();
+  ctx.closePath();
+}
+
+function collisionDetection() {
+  for (c = 0; c < brickColumnCount; c++) {
+    for (r = 0; r < brickRowCount; r++) {
+      var b = bricks[c][r];
+      if (b.status === 1) {
+        if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+          dy = -dy;
+          dy+=1;
+          dx+=1;
+          b.status = 0;
+          score++;
+          if (score === brickRowCount * brickColumnCount) {
+            alert("BRAVO PECHELISH!");
+            document.location.reload();
+          }
+        }
+      }
+    }
+  }
+}
+
+function drawScore() {
+  ctx.font = "20px Arial";
+  ctx.fillStyle = "darkgoldenrod";
+  ctx.fillText("TOCHKI: " + score, 8, 20);
+}
+
+function drawLives() {
+  ctx.font = "20px Arial";
+  ctx.fillStyle = "darkgoldenrod";
+  ctx.fillText("JIVOTI: " + lives, canvas.width - 95, 20);
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBricks();
+  drawBall();
+  drawPaddle();
+  drawScore();
+  drawLives();
+  collisionDetection();
+
+  if (y + dy < ballRadius) { 
+    dy = -dy
+  } else if (y + dy > canvas.height - ballRadius) {
+    if (x > paddleX && x < paddleX + paddleWidth) {
+      dy = -dy;
+    } else {
+      lives--;
+      if (!lives) {
+        alert("KRAI");
+        document.location.reload();
+      } else {
+        x = canvas.width / 2;
+        y = canvas.height - 30;
+        dx = 7;
+        dy = -7;
+        paddleX = (canvas.width - paddleWidth) / 2;
+      }
+    }
+  }
+  if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+    dx = -dx
+  }
+
+  if (rightPressed && paddleX < canvas.width - paddleWidth) {
+    paddleX += 19;
+  } else if (leftPressed && paddleX > 0) {
+    paddleX -= 19;
+  }
+
+  x += dx+2; 
+  y += dy+2; 
+  requestAnimationFrame(draw);
+}
+
+draw();
+     document.getElementById("startOrStopImg").onclick = function() {
+    var audio = document.getElementById("audio");
+    if (audio.paused) audio.play();
+    else audio.pause();
+}
+</script>

@@ -1,0 +1,76 @@
+body {
+  background-color: black;
+  text-align: center;
+}
+.audio{
+    height:100;
+    position: fixed;
+    top:0;
+    left: 200;
+}
+#igralnoPole {
+  width: 42vw;
+  height: 42vw;
+  margin: 0.5vw auto;
+  background-color: darkgray;
+}
+
+.miro {
+	height: 50px;
+	width: 50px;
+	position: fixed;
+	top: 0.3vh;
+	left: 5vw;
+	z-index: 100;
+}
+
+.gameBoardPixel {
+  width: 1vw;
+  height: 1vw;
+  float: left;
+}
+
+.suobshtenie {
+    font-family: URW Chancery L, cursive;
+	position: fixed;
+	z-index: 10;
+	height: 6vh;
+	font-size: 5.5vh;
+	font-weight: bold;
+	color: gray;
+	top: 10vh;
+	left: 0.6vw;
+	text-align: center;
+}
+
+.snakeBodyPixel {
+  background-color: darkgreen;
+  box-shadow: 0 0 5px darkgreen;
+}
+
+.bird {
+  background-color: darkred;
+}
+
+#scoreContainer {
+  width: 40vw;
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.menu_back {
+	height: 60px;
+	width: 60px;
+	position: fixed;
+	top: 0vh;
+	left: 0vw;
+	z-index: 100;
+}
+.scoreBoard {
+  color: dimgray;
+  background-color: black;
+  display: inline-block;
+  padding: 1vw;
+  width: 40%;
+}

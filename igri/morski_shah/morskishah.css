@@ -1,0 +1,61 @@
+<style>
+
+h1 {
+	color: orangered;
+	font-size: 70px;
+}
+
+#sluchai1, #sluchai2, #sluchai3, #sluchai4, #sluchai5,#sluchai6, #sluchai7, #sluchai8, #sluchai9 {
+	width: 250px;
+	height: 180px;
+	margin: auto;
+	border: 1px solid gray;
+	border-radius: 6px;
+	font-size: 70px;
+    font-weight: bold;
+	text-align: center;
+}
+
+.menu_back {
+	height: 90px;
+	width: 90px;
+	position: fixed;
+	top: -1vh;
+	left: 0vw;
+	z-index: 100;
+}
+
+#but {
+    box-sizing: border-box;
+    width: 120px;
+    height: 50px;
+    border: 1px solid black;
+	margin: auto;
+	border-radius: 4px;
+	font-family: URW Chancery L, cursive;
+    font-weight: bold;
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+#print {
+	font-family: URW Chancery L, cursive;
+    font-weight: bold;
+	color: black;
+	font-size: 20px;
+}
+
+#main {
+	text-align: center;
+    color: black;
+}
+
+#ins {
+	font-family: URW Chancery L, cursive;
+	color: black;
+    font-weight: bold;
+	font-size: 17px;
+}
+</style>

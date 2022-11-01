@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Sedni Beden</title>
+	<link rel = "icon" href = "assets/zaglavie2.png" type = "image/x-icon">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<h1>SEDNI BEDEN</h1>
+	<header>
+		<h2></h2>
+	</header>
+	<div class="main-container">
+		<div class="upper-container">
+			<button class="start">ZAPOCHNI IGRA</button>
+			<div class="game-status-container hidden"></div>
+		</div>
+		<div class="next-question-container hidden">
+			<button class="next-question">SLEDVASHT VUPROS</button>
+		</div>
+		<div class="game-container hidden">
+			<div class="help-buttons">
+				<div class="timer">60</div>
+				<button class="second-guess-button">2nd Guess</button>
+				<button class="fifty-fifty">50 : 50</button>
+			</div>
+			<div class="question-container"></div>
+			<div class="answer-container">
+				<ol type="A" class="answers">
+				</ol>
+			</div>
+		</div>
+		<div class="points-container hidden">0</div>
+	</div>
+	<audio id="lets-play" src="https://millionaire-school.netlify.com/sounds/lets_play.mp3"></audio>
+	<audio id="easy" src="https://millionaire-school.netlify.com/sounds/easy.mp3"></audio>
+	<audio id="wrong-answer" src="https://millionaire-school.netlify.com/sounds/wrong_answer.mp3"></audio>
+	<audio id="correct-answer" src="https://millionaire-school.netlify.com/sounds/correct_answer.mp3"></audio>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Righteous&family=Staatliches&display=swap');
+
+* {
+	font-family: Lato;
+}
+
+body{
+	align-items: center;
+	background-image: url("assets/maxresdefault.jpg"); 
+  	background-color: #cccccc; 
+  	height: 1080px; 
+  	background-position: center; 
+  	background-repeat: no-repeat; 
+  	background-size: cover; 
+	color: #fff;
+	text-align: center;
+	font-family: 'Acme', sans-serif;
+}
+
+h1{
+	font-size: 6rem;
+	font-weight: bolder;
+	color: darkgoldenrod;
+	margin-top: 30px;
+	border-block-end: 10px solid white;
+	writing-mode: horizontal-tb;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	font-family: 'Righteous', cursive;
+	text-shadow: 2px 2px #ff0000;
+}
+
+.start{
+	padding: 15px;
+	font-size: 25px;
+	font-weight: bolder;
+	border-radius: 25px;
+	border: 5px solid white;
+	background: goldenrod;
+	color: #19334d;
+	margin: 10px;
+	font-family: 'Staatliches', cursive;
+	box-shadow: 2px 5px #888888;
+
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.question-container{
+	padding: 10px;
+	color: darkgoldenrod;
+	font-size: 40px;
+	font-weight: bolder;
+	font-family: 'Staatliches', cursive;
+}
+
+.answer-container {
+	padding: 5px;
+	border: 3px solid white;
+	border-radius: 25px;
+	color: darkgoldenrod;
+	background: #19334d;
+	font-family: 'Staatliches', cursive;
+}
+
+.answers {
+	padding: 5px;
+	color: darkgoldenrod;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: 'Staatliches', cursive;
+	text-shadow: 1px 1px #19334d;
+}
+
+.answers:hover{
+	opacity: 0.6;
+	color: black;
+	font-weight: bolder;
+}
+
+.timer{
+	padding: 5px;
+	color: darkgoldenrod;
+	font-size: 20px;
+	font-weight: bolder;
+	font-family: 'Staatliches', cursive;
+	text-shadow: 2px 2px #ff0000;
+}
+
+.second-guess-button, .fifty-fifty, .points-container-hidden{
+	padding: 10px;
+	border: 3px solid white;
+	border-radius: 25px;
+	color: #19334d;
+	background: darkgoldenrod;
+	font-weight: bolder;
+	font-size: 20px;
+	margin: 10px;
+	font-family: 'Acme', sans-serif;
+	box-shadow: 2px 5px #888888;
+}
+
+button:hover{
+	opacity: 0.6;
+	font-family: 'Acme', sans-serif;
+}
+li {
+	cursor: pointer;
+}
+
+	</style>
+
+<script>
+
+const URL =
+	"https://raw.githubusercontent.com/aaronnech/Who-Wants-to-Be-a-Millionaire/master/questions.json";
+const gameContainer = document.querySelector(".game-container");
+const startBtn = document.querySelector(".start");
+const questionContainer = document.querySelector(".question-container");
+const answersContainer = document.querySelector(".answers");
+const nextQuestionBtn = document.querySelector(".next-question");
+const secondGuessBtn = document.querySelector(".second-guess-button");
+const fiftyFiftyBtn = document.querySelector(".fifty-fifty");
+const countDownClock = document.querySelector(".timer");
+const gameStatusContainer = document.querySelector(".game-status-container");
+const nextQuestionContainer = document.querySelector(".next-question-container");
+const pointsContainer = document.querySelector(".points-container");
+const letsPlayAudio = document.getElementById("lets-play");
+const easyAudio = document.getElementById("easy");
+const wrongAnswerAudio = document.getElementById("wrong-answer");
+const correctAnswerAudio = document.getElementById("correct-answer");
+
+let gameOn = false;
+let timesToGuess = 1;
+let correctAnswer;
+let questionList;
+let listOfAnswers;
+let currentTime;
+let data;
+let currentQuestion = {};
+let randomGameNum = 0;
+let randomQuestionNum = 0;
+let questionsAsked = [];
+let timeoutId;
+let intervalId;
+let points = 0;
+
+const randomNumHelperFunc = num => Math.floor(Math.random() * num);
+const dataLoad = async () => {
+	data = await fetch(URL).then(res => res.json());
+};
+const randomQuestionGenerator = () => {
+	randomGameNum = randomNumHelperFunc(4);
+	randomQuestionNum = randomNumHelperFunc(15);
+	
+	const questionAlreadyAsked = questionsAsked.findIndex(item => item[randomGameNum] === randomQuestionNum) === -1;
+	
+	if (questionAlreadyAsked) {
+		currentQuestion[randomGameNum] = randomQuestionNum;
+		questionsAsked.push(currentQuestion);
+		currentQuestion = {};
+	} else {
+		randomQuestionGenerator();
+	}
+};
+const fiftyFiftyGenerator = num => {
+	let randomFirst;
+	let randomSecond;
+	randomFirst = randomNumHelperFunc(4);
+	while (randomFirst === num) {
+		randomFirst = randomNumHelperFunc(4);
+	}
+
+	randomSecond = randomNumHelperFunc(4);
+	while (randomSecond === randomFirst || randomSecond === num) {
+		randomSecond = randomNumHelperFunc(4);
+	}
+	document.querySelector(`[id='${randomFirst}']`).style.visibility = "hidden";
+	document.querySelector(`[id='${randomSecond}']`).style.visibility = "hidden";
+};
+const startTimerMusic = () => {
+	timer();
+	letsPlayAudio.play();
+	letsPlayAudio.volume = 0.3;
+	timeoutId = setTimeout(() => {
+		easyAudio.play();
+		easyAudio.volume = 0.3;
+	}, 6000);
+};
+const stopTimerMusic = () => {
+	clearTimeout(timeoutId);
+	clearInterval(intervalId);
+	letsPlayAudio.pause();
+	letsPlayAudio.currentTime = 0;
+	easyAudio.pause();
+	easyAudio.currentTime = 0;
+	wrongAnswerAudio.pause();
+	wrongAnswerAudio.currentTime = 0;
+	correctAnswerAudio.pause();
+	correctAnswerAudio.currentTime = 0;
+};
+const resetPoints = () => {
+	points = 0;
+	pointsContainer.textContent = `${points} / 12`;
+};
+const gameOver = () => {
+	gameOn = false;
+	stopTimerMusic();
+	wrongAnswerAudio.play();
+	wrongAnswerAudio.volume = 0.3;
+	gameContainer.classList.add("hidden");
+	gameStatusContainer.classList.remove("hidden");
+	gameStatusContainer.textContent =
+		points === 1
+			? `Bahti Baluka. Imash ${points} tochka.`
+			: `Bahti Baluka. Imash ${points} tochki.`;
+	startBtn.textContent = "SHTE SE OPITAM PAK";
+	pointsContainer.classList.add("hidden");
+};
+const correctAnswerFunc = () => {
+	points += 1;
+	if (points < 12) {
+		stopTimerMusic();
+		correctAnswerAudio.play();
+		correctAnswerAudio.volume = 0.3;
+		nextQuestionContainer.classList.remove("hidden");
+		gameStatusContainer.classList.remove("hidden");
+		gameContainer.classList.add("hidden");
+		gameStatusContainer.textContent = "PRAVILNO";
+		pointsContainer.textContent = `${points} / 12`;
+	} else {
+		stopTimerMusic();
+		correctAnswerAudio.play();
+		correctAnswerAudio.volume = 0.3;
+		gameStatusContainer.classList.remove("hidden");
+		gameContainer.classList.add("hidden");
+		gameStatusContainer.textContent =
+			"BRAVO! Sedna beden i stana bogat!";
+		pointsContainer.textContent = `${points} / 12`;
+	}
+};
+const nextQuestionFunc = () => {
+	nextQuestionContainer.classList.add("hidden");
+	stopTimerMusic();
+	gameOn = true;
+	gameContainer.classList.remove("hidden");
+	gameStatusContainer.classList.add("hidden");
+	startBtn.textContent = "OTKAZVAM SE";
+	timesToGuess = 1;
+
+	let answers = "";
+	randomQuestionGenerator();
+	startTimerMusic();
+
+	correctAnswer = "";
+	correctAnswer =
+		data["games"][randomGameNum]["questions"][randomQuestionNum]["correct"];
+	questionList =
+		data["games"][randomGameNum]["questions"][randomQuestionNum]["content"];
+
+	questionList.forEach((item, index) => {
+		answers += `<li id="${index}">${item}</li>`;
+	});
+
+	questionContainer.textContent =
+		data["games"][randomGameNum]["questions"][randomQuestionNum]["question"];
+	answersContainer.innerHTML = answers;
+};
+const timer = () => {
+	currentTime = new Date().getTime();
+	intervalId = setInterval(() => {
+		const interval = Math.floor(
+			(60000 + currentTime - new Date().getTime()) / 1000
+		);
+		countDownClock.textContent = interval;
+		if (interval === 0) {
+			gameState = false;
+			clearInterval(intervalId);
+			gameOver();
+		}
+
+		return interval;
+	}, 100);
+};
+
+window.addEventListener("load", async () => {
+	await dataLoad();
+});
+startBtn.addEventListener("click", () => {
+	if (!gameOn) {
+		stopTimerMusic();
+		resetPoints();
+		secondGuessBtn.classList.remove("hidden");
+		fiftyFiftyBtn.classList.remove("hidden");
+		nextQuestionFunc();
+		pointsContainer.classList.remove("hidden");
+	} else {
+		resetPoints();
+		stopTimerMusic();
+		gameOver();
+	}
+});
+nextQuestionBtn.addEventListener("click", () => nextQuestionFunc());
+secondGuessBtn.addEventListener("click", () => {
+	timesToGuess = 2;
+	secondGuessBtn.classList.add("hidden");
+});
+fiftyFiftyBtn.addEventListener("click", () => {
+	fiftyFiftyGenerator(correctAnswer);
+	fiftyFiftyBtn.classList.add("hidden");
+});
+answersContainer.addEventListener("click", e => {
+	if (e.target.id == correctAnswer) {
+		e.target.classList.add("hidden");
+		correctAnswerFunc();
+	} else {
+		e.target.classList.add("hidden");
+		timesToGuess -= 1;
+		if (timesToGuess <= 0) {
+			stopTimerMusic();
+			gameOver();
+		}
+	}
+});
+	</script>
+
+</html>

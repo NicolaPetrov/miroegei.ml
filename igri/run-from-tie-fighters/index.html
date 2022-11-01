@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Run From The Tie FIghters</title>
+    <script src="vendor/jquery-1.7.2.js"></script>
+    <script src="vendor/underscore.js"></script>
+    <script src="vendor/jquery.hotkeys.js"></script>
+    <script src="vendor/key_status.js"></script>
+    <script src="src/starwars.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="icon" href = "images/zaglavie2.png" type="image/x-icon">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&display=swap');
+
+    body{
+        text-align: center;
+        background: #333333;
+        font-family: 'Azeret Mono', monospace;
+    }
+    canvas{
+        margin: 2rem;
+        border-radius: 15px;
+        border: 1px solid white;
+        box-shadow: 0 0 20px 0 white;
+        background-image: url("images/bg2.jpg");
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover;
+    }
+    p{
+        font-weight:bolder;
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    button{
+        text-align: center;
+        padding: 10px;
+        background: black;
+        color: white;
+        font-family: 'Azeret Mono', monospace;
+    }
+    button:hover{
+        opacity:0.7;
+        border: 1px solid white;
+        font-family: 'Azeret Mono', monospace;
+        border-radius: 5px;
+    }
+    </style>
+
+
+<body>
+
+<canvas id="starwars" width="640" height="480"></canvas>
+<button id="button" onclick="displayText()">INSTRUCTIONS<p id="instructions"></p>
+</button>
+<p id="instructions"></p>
+<script>
+    var game = new StarWars("starwars");
+    game.init();
+
+    function displayText(){
+         document.getElementById("instructions").innerHTML = "use the arrow keys on your keyboard to move"
+    }
+
+    swal("THIS IS AN UNFINISHED VERSION")
+
+</script>
+
+</body>
+</html>

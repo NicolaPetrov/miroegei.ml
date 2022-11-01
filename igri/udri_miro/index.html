@@ -1,0 +1,189 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>UDRI MIRO</title>
+</head>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+ 
+  font-family: Arial;
+  background-color: black;
+}
+        
+.grid {
+    position: absolute;
+    top: 1vw;
+    left: 26vw;
+	width: 1000px;
+	height: 1000px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.suobshtenie {
+	position: absolute;
+	z-index: 1;
+	font-size: 3vh;
+	font-weight: bolder;
+	color: goldenrod;
+	top: 1vh;
+	left: 79vw;
+	text-align: center;
+}
+ 
+.suobshtenie1 {
+	position: absolute;
+	z-index: 1;
+	font-size: 3vh;
+	font-weight: bolder;
+	color: goldenrod;
+	top: 20vh;
+	left: 84vw;
+	text-align: center;
+}
+  
+.suobshtenie2 {
+	position: absolute;
+	z-index: 1;
+	font-size: 4vh;
+	font-weight: bolder;
+	color: goldenrod;
+	top: 16vh;
+	left: 1vw;
+	text-align: center;
+    border-radius: 30px;
+    border: solid darkgoldenrod 4px;
+    padding: 3px;
+}
+        
+.square {
+	height: 240px;
+	width: 240px;
+    border-radius: 55px;
+	border: solid darkgoldenrod 6px;
+}
+
+.miro {
+	background-image: url("miro.png");
+	background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+        
+.music{
+    height: 5%; 
+	width: 5%;
+	position: absolute;
+	top: 5.3vh;
+	left: 94.2vw;
+	z-index: 100;
+}
+        
+.menu_back {
+	height: 4.7%; 
+	width: 2.5%;
+	position: absolute;
+	top: 4vh;
+	left: 0vw;
+	z-index: 100;
+}
+
+    </style>
+<body>
+  
+<div class="suobshtenie">Ostavashto vreme:<h2 id="time-left">90</h2></div>
+    <div class="suobshtenie1">Tochki:<h2 id="score">0</h2></div>
+    <div class="suobshtenie2">INSTRUKCII: <br><br>UDRI MIRO <br>PO KRATUNATA
+    <br>
+        ZA DA SPRE DA BUDE
+        <br>
+        SIMP
+    
+    </div>
+    <p>
+ <a href="https://www.miroegei.ml/main/">
+  <img class="menu_back" src="menu_back.png" alt="menu_back-img">
+ </a>
+</p>
+    <div class="music">
+    <img id="startOrStopImg" src="sound.png" alt="Play Button">
+<audio id="audio" src="sentrope.mp3" type="audio/mp3" ></audio>
+      </div>
+  <div class="grid">
+    <div class="square" id="1"></div>
+    <div class="square" id="2"></div>
+    <div class="square" id="3"></div>
+    <div class="square" id="4"></div>
+    <div class="square" id="5"></div>
+    <div class="square" id="6"></div>
+    <div class="square" id="7"></div>
+    <div class="square" id="8"></div>
+    <div class="square" id="9"></div>
+    <div class="square" id="10"></div>
+    <div class="square" id="11"></div>
+    <div class="square" id="12"></div>
+  </div>
+
+  <script>
+const squares = document.querySelectorAll('.square')
+const miro = document.querySelector('.miro')
+const timeLeft = document.querySelector('#time-left')
+const score = document.querySelector('#score')
+
+let result = 0;
+let hitPosition;
+let currentTime = 90;
+let timerId = null;
+
+function randomSquare() {
+  squares.forEach(square => {
+    square.classList.remove('miro')
+  })
+
+  let randomSquare = squares[Math.floor(Math.random() * 12)]
+  randomSquare.classList.add('miro')
+
+  hitPosition = randomSquare.id
+}
+
+squares.forEach(square => {
+  square.addEventListener('mousedown', () => {
+    if (square.id == hitPosition) {
+      result++
+      score.textContent = result
+      hitPosition = null
+    }
+  })
+})
+
+function movemiro() {
+  timerId = setInterval(randomSquare, 600)
+}
+
+movemiro()
+
+function countDown() {
+ currentTime--
+ timeLeft.textContent = currentTime
+
+ if (currentTime == 0) {
+   clearInterval(countDownTimerId)
+   clearInterval(timerId)
+   alert('SVURSHI TI VREMETO! Tochki= ' + result)
+ }
+
+}
+
+let countDownTimerId = setInterval(countDown, 1500)
+
+ document.getElementById("startOrStopImg").onclick = function() {
+    var audio = document.getElementById("audio");
+    if (audio.paused) audio.play();
+    else audio.pause();
+}
+</script>
+</body>
+</html>

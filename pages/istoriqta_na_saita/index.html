@@ -1,0 +1,260 @@
+<html>
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Istoriqta Na Saita</title>
+    <div class="music">
+    <img id="startOrStopImg" src="sound.png" alt="Play Button">
+<audio id="audio" src="sentrope.mp3" type="audio/mp3" ></audio>
+      </div>
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+
+}
+    
+body {
+  font-family: fantasy;
+  margin: 0;
+  height: 733.5px; 
+  width: 100%;
+}
+
+img {
+  vertical-align: middle;
+  
+  
+}
+
+.container {
+  position: relative;
+ 
+}
+
+.mySlides {
+  display: none;
+  
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.menu_back {
+	height: 4.5%; 
+	width: 3%;
+	position: absolute;
+	top: 3vh;
+	left: 0vw;
+	z-index: 100;
+}
+    
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 35%;
+  width: auto;
+  padding: 26px;
+  margin-top: -50px;
+  color: black;
+  font-weight: bolder;
+  font-size: 30px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+
+}
+    
+.music{
+    height: 5%; 
+	width: 5%;
+	position: absolute;
+	top: 5%;
+	left: 95%;
+	z-index: 1;
+}
+    
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.numbertext {
+  color: black;
+  font-size: 15px;
+  font-weight: bolder;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+    
+.caption-container {
+  text-align: center;
+  background-color: darkgray;
+  padding: 8px 16px;
+  font-weight: bolder;
+  color: black;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 10%;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active, .demo:hover {
+  opacity: 1;
+}
+</style>
+    
+<body>
+    
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 10</div>
+    <img src="1.JPG"  style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 10</div>
+    <img src="2.JPG" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 10</div>
+    <img src="3.JPG" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 10</div>
+    <img src="4.JPG" style="width:100%">
+  </div>
+
+<div class="mySlides">
+    <div class="numbertext">5 / 10</div>
+    <img src="5.JPG" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 10</div>
+    <img src="6.JPG" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">7 / 10</div>
+    <img src="7.JPG" style="width:100%">
+  </div>
+    
+ <div class="mySlides">
+    <div class="numbertext">8 / 10</div>
+    <img src="8.JPG" style="width:100%">
+  </div>
+
+<div class="mySlides">
+    <div class="numbertext">9 / 10</div>
+    <img src="9.JPG" style="width:100%">
+  </div>
+
+<div class="mySlides">
+    <div class="numbertext">10 / 10</div>
+    <img src="10.JPG" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">nazad</a>
+  <a class="next" onclick="plusSlides(1)">napred</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="1.JPG" style="width:100%" onclick="currentSlide(1)" alt="NACHALO">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="2.JPG" style="width:100%" onclick="currentSlide(2)" alt="INFORMACIQ">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="3.JPG" style="width:100%" onclick="currentSlide(3)" alt="PROKLQTIE">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="4.JPG" style="width:100%" onclick="currentSlide(4)" alt="KAK SE SLUCHI">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="5.JPG" style="width:100%" onclick="currentSlide(5)" alt="ISTORIQ">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="6.JPG" style="width:100%" onclick="currentSlide(6)" alt="SRAVNENIE">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="7.JPG" style="width:100%" onclick="currentSlide(7)" alt="MAIKATA NA MIRO">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="8.JPG" style="width:100%" onclick="currentSlide(8)" alt="TABLICA">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="9.JPG" style="width:100%" onclick="currentSlide(9)" alt="KOLA TOF NA SKI">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="10.JPG" style="width:100%" onclick="currentSlide(10)" alt="KRAI">
+    </div>
+  </div>
+    <p>
+ <a href="https://www.miroegei.ml/main/">
+  <img class="menu_back" src="menu_back.png" alt="menu_back-img">
+ </a>
+</p>
+</div>
+
+<script>
+document.getElementById("startOrStopImg").onclick = function() {
+    var audio = document.getElementById("audio");
+    if (audio.paused) audio.play();
+    else audio.pause();
+};
+    
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+</body>
+</html>

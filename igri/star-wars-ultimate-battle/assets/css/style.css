@@ -1,0 +1,189 @@
+#body{
+    background: url("../images/bg3.jpg") no-repeat center center fixed;
+}
+
+#jumbo {
+    background: rgb(250, 220, 220);
+    background: rgba(253, 225, 225, 0.8);
+    border-radius: 25px;
+    border: 1px solid #000;
+}
+.head {
+    /*background: #000;*/
+    text-shadow: 2px 2px #808080;
+    font-size: 50px;
+    line-height: 50px;
+    padding: 5px 0px 0px 5px;
+    text-align: center;
+    color: #f5c100;
+    font-family: 'Black Ops One', cursive;
+    border-bottom: 5px solid rgba(253, 225, 225, 0.8);
+    border-radius: 15px;
+}
+
+.char {
+    margin-top:-40px;
+    text-align: center;
+}
+
+.jumbotron {
+    margin-top:0px;
+    margin-bottom:10px;
+}
+
+.name {
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+}
+
+.power1, .power2, .power3, .power4, .health, .health2 {
+    color:rgb(0, 136, 0);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: .70px;
+}
+.chosen {
+    text-align: center;
+}
+
+.yourFighter{
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Bungee', cursive;
+}
+
+.attack {
+    background-color: #f5c100;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+#zaza{
+    color:black;
+    font-family: 'Black Ops One', cursive;
+}
+
+.cpp {
+    padding-top:3px;
+    font-size: 8px;
+    text-align: center;
+}
+
+#characterWrapper {
+    margin-top:10px;
+}
+
+
+.available{
+    float: right;
+    width:780px;
+    margin-right:-2%;
+    text-align: center;
+}
+
+#available2{
+    float: left;
+    clear: both;
+}
+
+#health2, #health {
+    color:rgb(0, 136, 0);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: .70px;
+}
+
+.oppo {
+    text-align: center;
+}
+
+.oppoOne {
+    margin-left: 30%;
+}
+
+.life {
+    margin-left:-14%;
+}
+
+.outcomes{
+    float:left;
+}
+
+.vol {
+    margin:5px;
+    height:40px;
+    width:40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(253, 225, 225, 0.8);
+}
+
+.vol:hover{
+    background:rgba(253, 225, 225, 1)
+}
+
+#titles{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#results1, #results2{
+    margin-top:50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: red;
+    text-align: center;
+    font-size: 30px;
+    padding:10px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.3);
+    background: #999999; 
+    border: 3px solid #999999;
+    margin-left:-100px;
+}
+
+#three{
+    margin-top:40px;
+    margin-bottom:-40px;
+}
+
+#buttonOne{
+    margin: 30px 0px -10px 120px;
+}
+
+#two{
+    margin-left:-200px;
+    margin-bottom:-20px;
+}
+
+.oppoOne{
+    margin-left:100px;
+}
+
+.oppoTwo, .oppoThree{
+    margin-left:60px;
+}
+
+@keyframes backgroundSith {
+    100% { background-image: url('assets/images/jedi_bg.jpg'); }
+  }
+
+  @keyframes backgroundJedi {
+    100% { background-image: url('assets/images/sith-bg.jpg'); }
+  }
+
+.jedi:hover{
+    background: green;
+    background: url("../images/jedi_bg.jpg") no-repeat center center fixed;
+    border-radius: 35px;
+    /*
+    -webkit-transition: background-color 700ms linear;
+    -ms-transition: background-color 700ms linear;
+    transition: background-color 700ms linear;*/
+}
+
+.sith:hover{
+    background: url("../images/sith-bg.jpg") no-repeat center center fixed;
+    border-radius: 35px;
+ 
+}

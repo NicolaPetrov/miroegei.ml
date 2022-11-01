@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>DNA TEST</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="img/zaglavie2.png" type="image/x-icon">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body>
+<html>
+
+<head>
+  <title>
+  </title>
+</head>
+
+<body>
+  <header>MIROEGEI DNA CHECKER</header>
+  <h2>ENTER YOUR DETAILS</h2>
+  <form action="" method="post" enctype="multipart/form-data">
+    <fieldset class="fieldset">
+      <legend>YOUR FACE</legend>
+      <label for="image">YOUR IMAGE: </label>
+      <input type="file" name="fileToUpload" required>
+    </fieldset>
+
+    <fieldset>
+      <legend> General Details</legend>
+      <label for="name">Name: </label>
+      <input type="text" name="name" required>
+      <br><br>
+      <label for="gender">Gender: </label>
+      <input type="radio" name="gender" value="male" required> Male
+      <input type="radio" name="gender" value="female" required> Female
+      <br><br>
+      <label for="age">Age: </label>
+      <input type="number" name="age" required>
+      <br><br>
+      <label for="birthday">Date of birth: </label>
+      <input type="date" name="birthday">
+      <br><br>
+      <label for="color">Favorite color: </label>
+      <input type="color" name="color">
+      <br><br>
+      <label for="country">Country: </label>
+      <select name="countries">
+        <option value="Bulgaria">Bulgaria</option>
+        <option value="Romania">Romania</option>
+        <option value="Greece">Greece</option>
+        <option value="Turkgay">Turkgay</option>
+        <option value="Russian">Russian</option>
+        <option value="USA">USA</option>
+        <option value="China">China</option>
+        <option value="Japan">Japan</option>
+        <option value="Germany">Germany</option>
+
+
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your Indicators</legend>
+      <label for="height">Height: </label>
+      <span class="left"> Short </span>
+      <input type="range" min="0" max="100" value="50" name="height"> <span class="right">Tall</span>
+      <br><br>
+      <label for="salary">Salary: </label>
+      <span class="left"> Poor </span>
+      <input type="range" min="0" max="100" value="50" name="salary"> <span class="right"> Rich </span>
+    <br><br>
+      <label for="email">Email: </label>
+      <input type="email" name="email" required>
+      <br>
+     
+      <br>
+      <label for="contact_method" id="method">Method to contact you: </label>
+      <input type="checkbox" name="method1" value="email"> Email
+      <input type="checkbox" name="method2" value="whatsapp"> Whatsapp
+    </fieldset>
+
+    <input type="submit" onclick="randomImg1()" value="Submit">
+  </form>
+
+  <script type="text/javascript">
+
+  swal("NE E DOVURSHENO. MURZI ME")
+    function randomImg1() {
+        var myImages1 = new Array();
+        myImages1[1] = "img/kur1.JPG";
+        myImages1[2] = "img/1.jpg";
+        myImages1[3] = "img/kur.JPG";
+        myImages1[4] = "img/2.jpg";
+        myImages1[5] = "img/3.jpg";
+        myImages1[6] = "img/4.jpg";
+        myImages1[7] = "img/5.jpg";
+        myImages1[8] = "img/6.jpg";
+        myImages1[9] = "img/7.jpg";
+        myImages1[10] = "img/8.jpg";
+        myImages1[11] = "img/9.jpg";
+        var rnd = Math.floor(Math.random() * myImages1.length);
+        if (rnd == 0) {
+                rnd = 1;
+        }
+        document.write('<img  src="' + myImages1[rnd] + '">');
+    }
+    </script>
+    
+</body>
+
+</html>
+<!-- partial -->
+  
+</body>
+</html>

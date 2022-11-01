@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Swifter Drifter 2000</title>
+    <link rel = "icon" href = "zaglavie2.png" type = "image/x-icon">
+  </head>
+  <body>
+    <header>Swifter Drifter 2000</header>
+    <canvas></canvas>
+    <div class="scene">
+      <div id="car" class="car red"></div>
+    </div>
+    <script src="https://car.pakastin.fi/socket.io/socket.io.js"></script>
+    <script src="matter.min.js"></script>
+    <script src="car.js"></script>
+  </body>
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Yanone+Kaffeesatz&family=ZCOOL+KuaiLe&display=swap');
+
+
+body {
+  overflow: hidden;
+  background-color: #bfbfbf;
+  text-align: center;
+}
+
+header{
+  font-weight: bolder;
+  font-size: 2rem;
+  padding: 15px;
+  background:#000;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  border-radius: 25px;
+  font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.car {
+  position: absolute;
+  top: -8px;
+  left: -4px;
+  width: 12px;
+  height: 22px;
+  border-radius: 2px;
+  will-change: transform;
+}
+
+.car.red {
+  background-color: #ff3300;
+}
+
+.car.ghost {
+  opacity: 1;
+}
+
+  </style>
+</html>

@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  align-items: flex-start;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  /* justify-content: center; */
+  background-image: url(https://i.imgur.com/UpkGCs5.jpg);
+}
+
+.title img {
+  width: 600px;
+  padding-left: 60px;
+  padding-top: 130px;
+}
+
+p {
+  font-family: 'Shrek', 'arial';
+  src: url('http://www.fontsaddict.com/fontface/shrek.TTF');
+  font-size: 55px;
+  padding-left: 60px;
+  margin-top: 0px;
+  color: #b9cf35;
+  /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+  text-shadow: 4px 4px 4px black;
+  
+}
+
+.two-buttons {
+  padding-left: 180px;
+  padding-top: 30px;
+  border: 5px;
+  padding-right: 30px;
+}
+
+.button {
+  margin-right: 10px;
+  font-family: 'Shrek', 'arial';
+  background-color: #b9cf35 ;
+  color: black;
+}
+

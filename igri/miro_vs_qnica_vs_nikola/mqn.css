@@ -1,0 +1,150 @@
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: darkkhaki;
+  color: darkslategray;
+  font-family: "Roboto", sans-serif;
+}
+
+code {
+  font-family: "Source Code Pro", monospace;
+  font-size: 30px;
+}
+
+a {
+  font-family: "Source Code Pro", monospace;
+  color: #ffcc99;
+}
+
+a:hover {
+  color: #ffba76;
+}
+
+header {
+  background: khaki;
+  padding: 20px;
+}
+
+header h1 {
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+
+.to4ki {
+  width: 300px;
+  margin: 40px auto;
+  font-size: 40px;
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.menu_back {
+	height: 90px;
+	width: 90px;
+	position: fixed;
+	top: -1vh;
+	left: 0vw;
+	z-index: 100;
+}
+
+.badge {
+  background: darkkhaki;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 10px 6px;
+}
+
+#tvoi-badge {
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  transform: translate(-10%, -50%);
+}
+
+#komp-badge {
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  transform: translate(10%, -50%);
+}
+
+.rezultat {
+  font-weight: 300;
+  text-align: center;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.result {
+  line-height: 50px;
+}
+
+.choices {
+  margin: 0 auto;
+  text-align: center;
+  padding: 80px 0;
+  fill: black;
+}
+
+.choice {
+  display: inline-block;
+  border: 3px solid black;
+  border-radius: 50%;
+  fill: black;
+  padding: 10px;
+  margin: auto 20px;
+  transition: all 0.1s ease;
+}
+
+.choice img {
+  filter: invert(100%);
+  fill: black;
+}
+
+#action-message {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 200px 0;
+}
+
+.winningStyles {
+  border: 3px solid darkgreen;
+  background-color: darkgreen;
+  box-shadow: 0 0 20px darkgreen;
+}
+
+.losingStyles {
+  border: 3px solid darkred;
+  background-color: darkred;
+  box-shadow: 0 0 20px darkred;
+}
+
+.drawStyles {
+  border: 3px solid black;
+  background-color: black;
+  box-shadow: 0 0 20px black;
+}
+
+sup {
+  margin: 0;
+  padding: 0;
+}

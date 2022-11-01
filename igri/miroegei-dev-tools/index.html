@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>MIROEGEI DEV TOOLS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="icon" href="zaglavie2.png" type="image/x-icon">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Press+Start+2P'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+	<div id="login">
+		<form action="submission.html" method="post"   onclick="return check_info()";>
+			 username:<input type="text" name="username"     id="username" /><br>
+			 </br>
+			 password:<input type="text" name="password"     id="password"/><br>
+			 </br>
+			 <input type="button" value="login" id="loginbtn" onclick="return check_info()"/>
+		   </form>
+		</div>
+<div id="console" class="console">
+	<div class="output">
+		<span>Initializing...</span><br/>
+		<span class="green">0.030ms ok!</span><br/>
+		<span class="seperator">== == == == == == == == == == == == == == == == == ==</span></br>
+		<pre contenteditable="false"><h4>MIROEGEI.ML</h4><h5>DEV TOOLS</h5></pre></br>
+<!--
+		/  |/  /   ()  ____    ____    ____   ____    ____     ()      /  |/  /  _
+ 	   / /|_/ /   / / |____|  |    |  |      | () |  |        / /     / /|_/ /  | |
+	  / /  / /   / /  |  \    | () |  |----  |----   |----   / /     / /  / /   | |__
+	 /_/  /_/   /_/   |   \   |____|  |____  |____/  |____  /_/  () /_/  /_/    |____|-->
+		<span class="seperator">== == == == == == == == == == == == == == == == == ==</span></br>
+		
+		</br>
+		<span class="blue">type '<span class="grey">help</span>' to see a list of comands available</span><br>
+	</div>
+	<div class="action">
+		<span>dev$ </span>
+		<textarea class="input" name="input" cols="30" rows="1"></textarea>
+	</div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
+ 

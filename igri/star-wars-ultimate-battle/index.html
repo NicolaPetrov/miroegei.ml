@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Bungee|Rubik:900" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <audio id="my_audio" src="assets/sounds/theme.mp3" loop="loop" allow="autoplay"></audio>
+    <title>Star Wars Battle</title>
+</head>
+<div>
+<body id="body">
+    
+    <nav class="head"> Star Wars<br> Ultimate Battle</nav>
+    <div>
+        <button type="button" class="glyphicon glyphicon-volume-up vol"></button>
+    </div>
+    <div class="container jumbotron" id="jumbo">
+        <div class ="row char">
+            <div class="col-lg-12" id="peace">
+                <h2>Choose your Side</h2><br><br>
+            </div>
+            <br>
+                <h2 id="1">Jedi</h2>
+            <div class="col-lg-12" id="characterWrapper">
+                <div class="luke col-lg-3 chosen" id="luke">
+                    <p class="name">LUKE SKYWALKER</p>
+                    <img class="jedi" src="assets/images/Luke.png" alt="Luke Skywalker" width="170px" height="210px">
+                    <p class="power1"> HP: 3300</p>
+                </div>
+                <div class="Obiwan col-lg-3 chosen" id="Obiwan">
+                    <p class="name">JESUS</p>
+                    <img class="jedi" src="assets/images/Obiwan.png" alt="Obiwan" width="140px" height="210px">
+                    <p class="power2">HP: 2500</p>
+                </div>
+                <div class="anakin col-lg-3 chosen" id="anakin">
+                    <p class="name">COOL BOI AMAKIN</p>
+                    <img class="jedi" src="assets/images/anakin.png" alt="Anakin" width="180px" height="210px">
+                    <p class="power3">HP: 3500</p>
+                </div>
+                <div class="mace col-lg-3 chosen" id="mace">
+                    <p class="name">MACE SWINDU</p>
+                    <img class="jedi" src="assets/images/mace.png" alt="mace" width="190px" height="210px">
+                    <p class="power4">HP: 3300</p>
+                </div>
+                <!--<div class="yoda col-lg-3 chosen" id="yoda">
+                    <p class="name">POWERFUL AUTISTIC FROG</p>
+                    <img class="jedi" src="assets/images/Yoda.png" alt="Yoda" width="180px" height="210px">
+                    <p class="power3">HP: 3500</p>
+                </div>-->
+                <br><br>
+                <h2 id="2">Sith</h2>
+                <div class="vader col-lg-3 chosen" id="vader">
+                    <p class="name">DARTH VADER</p>
+                    <img class="sith" src="assets/images/Vader.png" alt="Vader" width="180px" height="210px">
+                    <p class="power3">HP: 4000</p>
+                </div>
+                <div class="sidious col-lg-3 chosen" id="sidious">
+                    <p class="name">POWERFUL AUTISTIC SCHIZOPHRENIC</p>
+                    <img class="sith" src="assets/images/palps.png" alt="Sidious" width="180px" height="210px">
+                    <p class="power3">HP: 3990</p>
+                </div>
+                <div class="swolo col-lg-3 chosen" id="swolo">
+                    <p class="name">BEN SWOLO</p>
+                    <img class="sith" src="assets/images/ben2.png" alt="swolo" width="190px" height="210px">
+                    <p class="power4">HP: 2500</p>
+                </div>
+                <div class="dooku col-lg-3 chosen" id="dooku">
+                    <p class="name">COUNT DOOKU</p>
+                    <img class="sith" src="assets/images/dooku.png" alt="dooku" width="190px" height="210px">
+                    <p class="power4">HP: 2600</p>
+                </div>
+                <div class="col-lg-12" id="peace">
+                    <h2 id="three">Choose Wisely!</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="life2 col-lg-4">
+            <div class="col-lg-12">
+                <h2 class="one">Your Fighter</h2>
+            </div>
+            <div class="yourFighter">
+                <div class="life col-lg-6">
+                    <p id="health"></p>
+                </div>
+            </div>
+        </div>
+        <div class="available">
+            <div class="col-lg-12">
+                <h2 class="one">Enemies Available to attack</h2>
+                <div class="eta"></div>
+            </div>
+        </div>
+        <div class="col-lg-6" id="available2">
+            <div class="row col-lg-6" id="buttonOne">
+                <button type="button" class="btn btn-primary btn-lg attack" id="zaza"> Attack</button>
+            </div>
+            <div class ="col-lg-12">
+                <div class="col-lg-12">
+                    <h2 id="four">Current Opponent</h2>
+                </div>
+                <div class="opponent">
+                    <div class="col-lg-12">
+                        <p id="health2"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class ="col-lg-6 lastly">
+                <div class="col-lg-12" id="titles">
+                    <h2 id="two">Battle Statistics</h2>
+                </div>
+                <div class="outcomes">
+                    <div class="col-lg-12">
+                    <p id="results1"></p>
+                    <p id="results2"></p>
+                    </div>
+                </div>
+        </div>
+    </div>
+   
+</body>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/javascript/game.js" rel="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</div>
+</html>

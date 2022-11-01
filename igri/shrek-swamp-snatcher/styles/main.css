@@ -1,0 +1,425 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: black;
+  height: 100%;
+  background-image: url(../images/shrek-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+header {
+  background-color: #82b74b;
+  width: 100%;
+  /* height: 30%; */
+  opacity: 0.9;
+  display: none;
+}
+
+header > img {
+  height: 50px;
+  width: 150px;
+  padding-left: 30px;
+}
+
+header > p {
+  font-size: 35px;
+}
+
+section:first-of-type {
+  flex: 1;
+  height: 80vh;
+  justify-content: center;
+  width: 100%;
+}
+
+section:last-of-type {
+  flex: 3;
+  height: 100vh;
+  justify-content: center;
+  padding: 0 0 0 20px;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+
+}
+.grid {
+  display: flex;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  align-items: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  height: 90%;
+  width: 550px;
+  justify-content: center;
+  /* max-width: 600px; */
+  opacity: 0.8;
+  /* border-radius: 20px; */
+  padding-left: 15px;
+}
+
+.grid div {
+  flex-grow: 1;
+  height: 10%;
+  width: 10%;
+  max-height: 10%;
+  max-width: 10%;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  
+}
+
+.save-text {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 20px;
+  text-align: center;
+  /* text-shadow: 2px 2px 2px #b9cf35; */
+  min-height: 70%;
+  display: flex;
+  flex-direction: column;
+  /* padding-left: 10px; */
+  align-items: center;
+  color: white;
+  width: 35%;
+  padding-right: 15px;
+  padding-top: 6px;
+  
+}
+
+.saved-chars > p {
+  font-size: 40px;
+  text-shadow: 3px 3px 3px #b9cf35;
+  color: white;
+  font-family: 'Cinzel Decorative', cursive;
+  margin: 0;
+  text-align: left;
+  font-weight: bold;
+}
+
+.grid div.player {
+  background-image: url(http://icons.iconarchive.com/icons/majdi-khawaja/shrek/256/Shrek-icon.png);
+  background-size: 55px;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-position: center;
+
+}
+
+.grid div.safety {
+  background-color: #405d27;
+  /* background-image: url(https://previews.123rf.com/images/varunalight/varunalight1403/varunalight140300049/26710550-idyllic-seamless-grass-texture.jpg);
+  background-size: 300px; */
+}
+
+.grid div.lilypad {
+  background-image: url(http://www.vinotique.com/postpic/2011/07/cartoon-lily-pad-printable_387220.jpg);
+  background-size: 70px;
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.grid div.puss {
+  background-image: url(http://icons.iconarchive.com/icons/majdi-khawaja/shrek/256/Puss-2-icon.png);
+  background-size: 50px;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-repeat: no-repeat;
+}
+
+.grid div.donkey {
+  background-image: url(http://icons.iconarchive.com/icons/majdi-khawaja/shrek/256/Donkey-3-icon.png);
+  background-size: 50px;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-repeat: no-repeat;
+}
+
+.grid div.fiona {
+  background-image: url(http://icons.iconarchive.com/icons/majdi-khawaja/shrek/256/Fiona-3-icon.png);
+  background-size: 48px;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.grid div.car {
+  background-image: url(../images/game-boy-advance-11456.png);
+  background-size: 80px;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-position: center;
+}
+
+.grid div.fairyG {
+  background-image: url(../images/fairy-g.png);
+  background-size: 60px;
+  background-position-x: 0;
+  background-position-y: 0;
+
+}
+
+.grid div.river {
+  background-color: rgb(63, 184, 206);
+  background-size: 180px;
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.grid div.log {
+  background-color: rgb(185, 106, 50);
+  background-size: 53px;
+  background-position-x: 0;
+  background-position-y: 0;
+  border: 1px solid #662200;
+}
+
+.skull-and-crossbones {
+  background: url(../images/goo.png) no-repeat center;
+  background-size: scale-down;
+}
+
+.title img {
+  width: 600px;
+}
+
+.swamp {
+  background-color: #c1946a;
+  background-size: 60px;
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.scroll {
+  display: flex;
+  flex-direction: row;
+  padding-top: 75px;
+}
+
+.scroll img {
+  max-width: 530px;
+  min-height: 400px;
+  padding-left: 90px;
+  
+}
+
+.trophy {
+  background-image: url(https://i.gifer.com/XqyT.gif);
+  background-size: 60px;
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.losing-text {
+  font-family: 'Shrek', 'arial';
+  font-size: 90px;
+  text-shadow: 5px 5px 5px #b9cf35;
+  text-align: center;
+  color: white;
+  margin-top: 180px;
+}
+
+.losing-text > button {
+  text-align: center;
+  color: black;
+  border:2px solid black;
+  font-size: 20px;
+  background-color: #82b74b;
+  border-radius: 15px;
+  font-family: 'Cinzel Decorative', cursive;
+  min-width: 120px;
+}
+
+.winning-text {
+  font-family: 'Shrek', 'arial';
+  font-size: 70px;
+  text-shadow: 5px 5px 5px #b9cf35;
+  color:palevioletred;
+  max-height: 600px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.saved-chars {
+  display: flex;
+  flex-direction: row;
+}
+
+.fiona {
+  width: 118x;
+  height: 256px;
+}
+
+.puss {
+  width: 149px;
+  height: 256px;
+}
+
+.donkey {
+  width: 126px;
+  height: 247px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  padding-top: 10px;
+}
+
+.timer {
+  border: 2px solid black;
+  font-size: 30px;
+  padding: 5px;
+  /* margin: 10px 0px; */
+  background-color: #82b74b;
+  border-radius: 10px;
+  font-family: 'Shrek', 'arial';
+  color: black;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  background-color: #82b74b;
+  min-height: 50px;
+  height: 50px;
+}
+
+footer > p {
+  color: black;
+  font-size: 15px;
+  font-family: 'Cinzel Decorative', cursive;
+
+}
+
+.baby {
+  background-image: url(https://www.models-resource.com/resources/big_icons/13/12685.png);
+  background-size: 40px;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.pig {
+  background-image: url(https://www.models-resource.com/resources/big_icons/13/12691.png);
+  background-size: 60px;
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.gingerbread {
+  background-image: url(../images/59f878753cec115efb36238a.png);
+  background-size: 30px;
+  background-position-x: 0;
+  background-position-y: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#start {
+  color: black;
+  border:2px solid black;
+  font-size: 20px;
+  background-color: #82b74b;
+  border-radius: 15px;
+  font-family: 'Cinzel Decorative', cursive;
+  
+}
+
+#start:hover {
+  background-color: #82b74b;
+  color:white;
+}
+
+#reset {
+  color: black;
+  border:2px solid black;
+  font-size: 20px;
+  background-color: #82b74b;
+  border-radius: 15px;
+  font-family: 'Cinzel Decorative', cursive;
+  
+}
+
+#reset:hover {
+  background-color: #82b74b;
+  color:white;
+}
+
+.score {
+  color: palevioletred;
+  text-shadow: 1px 1px 1px black;
+  font-size: 30px;
+  font-family: 'Shrek', 'arial';
+
+}
+
+.image-scroll {
+    position: relative; 
+    width: 350px;
+    width: 100%; /* for IE 6 */
+ }
+ 
+ h2 { 
+    position: absolute; 
+    top: 80px; 
+    left: 90px; 
+    width: 60%; 
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Cinzel Decorative', cursive;
+    max-width: 500px;
+    text-decoration: underline;
+ }
+
+ .image-scroll > p {
+  position: absolute; 
+  top: 80px; 
+  left: 120px; 
+  width: 60%; 
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: 'Cinzel Decorative', cursive;
+  max-width: 500px;
+  padding-top: 40px;
+ }
+
+ h3 {
+  font-size: 40px;
+  text-shadow: 3px 3px 3px #b9cf35;
+  color: white;
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: bold;
+ }
+
+ .score-board {
+   padding-top: 10px;
+   
+ }
+
+ @media only screen and (max-width: 840px) {
+
+  section:last-of-type {
+    display: none;
+  }
+}

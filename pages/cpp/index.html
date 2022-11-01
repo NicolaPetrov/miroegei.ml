@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <title>c++</title>
+     </head>
+     <body>
+<PRE>
+#include <iostream>
+
+using namespace std;
+
+
+
+int main() {
+
+    int x, n;
+
+    cout << "Vuvedete broi na chislata :" << endl;
+
+    cin >> n;
+
+    int* array = new int(n);
+
+
+
+    cout << "Vuvedete " << n << " chisla" << endl;
+
+    for (x = 0; x < n; x++) {
+
+        cin >> array[x];
+
+    }
+
+
+
+    cout << "Vuvedohte: " << endl;
+
+    for (x = 0; x < n; x++) {
+
+        cout << array[x] << " ";
+
+    }
+
+
+
+    int proiz = 1;
+
+    for (int i = 0; i < n; i++) {
+
+        proiz = proiz * array[i];
+
+    }
+
+    
+
+    cout << "\nProizvedenieto na chislata e: " << proiz << endl;
+
+    
+
+    int kratni=0;
+
+    for (int i = 0; i < n; i++) {
+
+        if (array[i] % 5 == 0)
+
+            kratni = kratni + 1;
+
+    }
+
+    
+
+    cout << "Ima > " << kratni << " < chisla kratni na 5" << endl;
+
+
+
+    int ednocif = 0;
+
+    for (int i = 0; i < n; i++) {
+
+        if (array[i] < 10)
+
+            ednocif = ednocif + 1;
+
+    }
+
+
+
+    cout << "Ima > " << ednocif << " < ednocifreni chisla" << endl;
+
+
+
+    return 0;
+
+}
+-------------------------------------------------------------------------------------------
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+int i, n;
+string Ime;
+
+cout << "Purvoto ime na uchenika: "; cin >> Ime;
+cout << endl << "Broi Predmeti: "; cin >> n;
+
+float a[n], sum = 0, avg, six = 0;
+
+cout << endl << "Vuvedete ocentkite po predmetite v interval ot 2 do 6" << endl;
+
+for (i = 0; i < n; i++)
+{
+do {
+
+cout << "Ocenka [" << i << "]=";
+cin >> a[i];
+
+} while (a[i] < 2 || a[i]>6);
+}
+
+cout << endl << Ime << endl;
+
+for (i = 0; i < n; i++)
+{
+cout << a[i] << " ";
+
+if (a[i] > 0) sum = sum + a[i];
+if (a[i] == 6) six = six + 1;
+}
+
+avg = sum / n;
+
+cout << endl << "Sreden uspeh: " << avg << endl;
+cout << endl << "Shestici:  " << six << endl;
+
+if (avg >= 4.5 && avg < 5) {
+cout << endl << "Stipendiq: 50 kinta " << endl;
+}
+else if (avg >= 5 && avg < 5.5) {
+cout << endl << "Stipendiq: 75 kinta " << endl;
+}
+else if (avg >= 5.5 && avg <= 6) {
+cout << endl << "Stipendiq: 100 kinta " << endl;
+}
+else {
+cout << endl << "NEMA PARI" << endl;
+}
+
+cout << endl << "-----------gospojo molq az iskam da imam 6---------------" << endl;
+
+return 0;
+}
+</PRE>
+     </body>
+</html>
